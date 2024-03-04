@@ -1,5 +1,5 @@
 <?php
-    $material = 'metal';
+    $material = 'madeira';
 
     switch ($material){
         case 'plastico':
@@ -329,29 +329,9 @@
     </section>
 
     <footer>
-        <div class="container-fluid menu">
-            <div class="row py-5">
-                <div class="col-5 linha"></div>
-                <div class="col-2 logoCamp justify-content-center">
-                    <img class="logo pb-2" src="rodape/EcoMoment - logo rodape.png" alt="Logo do EcoMoment">
-                </div>
-                <div class="col-5 linha"></div>
-            </div>
-            <div class="row pb-5">
-                <div class="col-sm-1"></div>
-                <div class="col-12 col-sm-3 icones">
-                    <img src="rodape/instagram.png" alt="Logo instagram">
-                    <img src="rodape/twitter.png" alt="Logo X/Twitter">
-                    <img src="rodape/pinterest.png" alt="Logo pinterest">
-                </div>
-                <div class="col-sm-4"></div>
-                <div class="col-12 pt-4 py-sm-0 col-sm-3 icones">
-                    <img class="mobile" src="rodape/googlePlay.png" alt="Botão 'Disponível no Google Play'">
-                    <img class="mobile" src="rodape/appStore.png" alt="Botão 'Disponível na AppStore'">
-                </div>
-                <div class="col-sm-1"></div>
-            </div>
-        </div>
+        <?php
+            require_once('rodape/rodape.html');
+        ?>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
