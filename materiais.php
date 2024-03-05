@@ -116,6 +116,11 @@
             font-family: Circe, sans-serif;
             text-shadow: 1px 1px 5px #d9d9d9;
         }
+        .center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .btnPesq{
             background-color: <?=$cor?>;
             color: #f4f4f4;
@@ -198,6 +203,43 @@
             width: 130px;
         }
 
+        /*Card de ideias*/
+        .ideias{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card{
+            width: 500px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card-col{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .card-content{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        /*Estrela */
+        .estrela{
+            width: 500px;
+            z-index: 2;
+        }
+        .preenchimento{
+            width: 85%;
+            background-color: orangered;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -213,9 +255,9 @@
     <section class="mt-5"> 
         <div class="container">
             <div class="row">
-                <div class="col-4 justify-content-center"></div>
-               <div class="col-4 justify-content-center contImgMaterial"><?=$imagem?></div>
-               <div class="col-4 justify-content-center"></div>
+                <div class="col-4 center"></div>
+               <div class="col-4 center"><?=$imagem?></div>
+               <div class="col-4 center"></div>
             </div>
         </div>
         
@@ -300,7 +342,7 @@
         <div class="container px-sm-3 px-md-5 mt-5">
             <h1 class="display-5 fw-bold text-center mb-5" id="titulo">IDEIAS DE REUTILIZAÇÃO COM <?=$material?></h1> <!--Muda com Php-->
 
-            <div class="row justify-content-center  nunito">
+            <div class="row center nunito">
                 <div class="dropdown col-3">
                     <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="icones-materiais/ordenacao.png" alt="ícone de organização em lixeiras"> <span class="d-none d-sm-block mx-1" id="selectedFiltro">Ordenar</span> </button>
                     <ul class="dropdown-menu">
@@ -322,11 +364,90 @@
                 </div>
             </div>
 
-            <div class="container mt-3 text-center" style="background-color: #fff;">
-                <br><br><br><br><br><br><br><br><br><br>IDEIAS<br><br><br><br><br><br><br><br><br><br>
+            <div class="container-fluid mx-1 row center nunito ideias mt-3">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-6 card-col img-card">
+                            
+                        </div>
+                        <div class="col-6 card-col card-content">
+                            <div class="card-title">Ideia do momento aí bjos</div>
+                            <div class="card-subtitle">Por @fulane de tel</div>
+                            <div class="card-text">cinco estrelhas boloto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-6 card-col img-card">
+                            
+                        </div>
+                        <div class="col-6 card-col card-content">
+                            <div class="card-title">Ideia do momento aí bjos</div>
+                            <div class="card-subtitle">Por @fulane de tel</div>
+                            <div class="card-text">cinco estrelhas boloto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-6 card-col img-card">
+                            
+                        </div>
+                        <div class="col-6 card-col card-content">
+                            <div class="card-title">Ideia do momento aí bjos</div>
+                            <div class="card-subtitle">Por @fulane de tel</div>
+                            <div class="card-text">cinco estrelhas boloto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-6 card-col img-card">
+                            
+                        </div>
+                        <div class="col-6 card-col card-content">
+                            <div class="card-title">Ideia do momento aí bjos</div>
+                            <div class="card-subtitle">Por @fulane de tel</div>
+                            <div class="card-text">cinco estrelhas boloto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-6 card-col img-card">
+                            
+                        </div>
+                        <div class="col-6 card-col card-content">
+                            <div class="card-title">Ideia do momento aí bjos</div>
+                            <div class="card-subtitle">Por @fulane de tel</div>
+                            <div class="card-text">cinco estrelhas boloto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-6 card-col img-card">
+                            
+                        </div>
+                        <div class="col-6 card-col card-content">
+                            <div class="card-title">Ideia do momento aí bjos</div>
+                            <div class="card-subtitle">Por @fulane de tel</div>
+                            <div class="card-text">cinco estrelhas boloto</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+
+    <div class="center"> <!-- Posicionar um em cima do outro e sobrepor - mudar a porcentagem de acordo com a review -->
+        teste da estrela
+        <div class="estrela">aaaaaaaaaa
+            <div class="preenchimento">aaaaa</div>
+        </div>
+    </div>
 
     <footer>
         <?php
