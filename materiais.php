@@ -1,5 +1,5 @@
 <?php
-    $material = 'madeira';
+    $material = $_REQUEST['material'];
 
     switch ($material){
         case 'plastico':
@@ -250,86 +250,164 @@
                 <div class="container-fluid mx-1 row center nunito ideias mt-3">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6 card-col img-card">
-        
+                            <div class="col-12 col-sm-6 card-col img-card">
+                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
                             </div>
-                            <div class="col-6 card-col card-content">
-                                <div class="card-title">Ideia do momento aí bjos</div>
-                                <div class="card-subtitle">Por @fulane de tel</div>
-                                <div class="card-text">cinco estrelhas boloto</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-6 card-col img-card">
-        
-                            </div>
-                            <div class="col-6 card-col card-content">
-                                <div class="card-title">Ideia do momento aí bjos</div>
-                                <div class="card-subtitle">Por @fulane de tel</div>
-                                <div class="card-text">cinco estrelhas boloto</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-6 card-col img-card">
-        
-                            </div>
-                            <div class="col-6 card-col card-content">
-                                <div class="card-title">Ideia do momento aí bjos</div>
-                                <div class="card-subtitle">Por @fulane de tel</div>
-                                <div class="card-text">cinco estrelhas boloto</div>
+                            <div class="col-12 col-sm-6 card-col card-content">
+                                <div class="card-title">Vaso de base de garrafa PET</div>
+                                <div class="card-subtitle">Por @carlinhos123</div>
+                                <div class="card-text">
+                                    <div class="rating">
+                                        <input value="5" name="rating" id="star5" type="radio">
+                                        <label for="star5"></label>
+                                        <input value="4" name="rating" id="star4" type="radio">
+                                        <label for="star4"></label>
+                                        <input value="3" name="rating" id="star3" type="radio">
+                                        <label for="star3"></label>
+                                        <input value="2" name="rating" id="star2" type="radio">
+                                        <label for="star2"></label>
+                                        <input value="1" name="rating" id="star1" type="radio">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="dificuldade"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="row">
-                            <div class="col-6 card-col img-card">
-        
+                            <div class="col-12 col-sm-6 card-col img-card">
+                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
                             </div>
-                            <div class="col-6 card-col card-content">
-                                <div class="card-title">Ideia do momento aí bjos</div>
-                                <div class="card-subtitle">Por @fulane de tel</div>
-                                <div class="card-text">cinco estrelhas boloto</div>
+                            <div class="col-12 col-sm-6 card-col card-content">
+                                <div class="card-title">Vaso de base de garrafa PET</div>
+                                <div class="card-subtitle">Por @carlinhos123</div>
+                                <div class="card-text">
+                                    <div class="rating">
+                                        <input value="5" name="rating" id="star5" type="radio">
+                                        <label for="star5"></label>
+                                        <input value="4" name="rating" id="star4" type="radio">
+                                        <label for="star4"></label>
+                                        <input value="3" name="rating" id="star3" type="radio">
+                                        <label for="star3"></label>
+                                        <input value="2" name="rating" id="star2" type="radio">
+                                        <label for="star2"></label>
+                                        <input value="1" name="rating" id="star1" type="radio">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="dificuldade"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="row">
-                            <div class="col-6 card-col img-card">
-        
+                            <div class="col-12 col-sm-6 card-col img-card">
+                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
                             </div>
-                            <div class="col-6 card-col card-content">
-                                <div class="card-title">Ideia do momento aí bjos</div>
-                                <div class="card-subtitle">Por @fulane de tel</div>
-                                <div class="card-text">cinco estrelhas boloto</div>
+                            <div class="col-12 col-sm-6 card-col card-content">
+                                <div class="card-title">Vaso de base de garrafa PET</div>
+                                <div class="card-subtitle">Por @carlinhos123</div>
+                                <div class="card-text">
+                                    <div class="rating">
+                                        <input value="5" name="rating" id="star5" type="radio">
+                                        <label for="star5"></label>
+                                        <input value="4" name="rating" id="star4" type="radio">
+                                        <label for="star4"></label>
+                                        <input value="3" name="rating" id="star3" type="radio">
+                                        <label for="star3"></label>
+                                        <input value="2" name="rating" id="star2" type="radio">
+                                        <label for="star2"></label>
+                                        <input value="1" name="rating" id="star1" type="radio">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="dificuldade"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="row">
-                            <div class="col-6 card-col img-card">
-        
+                            <div class="col-12 col-sm-6 card-col img-card">
+                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
                             </div>
-                            <div class="col-6 card-col card-content">
-                                <div class="card-title">Ideia do momento aí bjos</div>
-                                <div class="card-subtitle">Por @fulane de tel</div>
-                                <div class="card-text">cinco estrelhas boloto</div>
+                            <div class="col-12 col-sm-6 card-col card-content">
+                                <div class="card-title">Vaso de base de garrafa PET</div>
+                                <div class="card-subtitle">Por @carlinhos123</div>
+                                <div class="card-text">
+                                    <div class="rating">
+                                        <input value="5" name="rating" id="star5" type="radio">
+                                        <label for="star5"></label>
+                                        <input value="4" name="rating" id="star4" type="radio">
+                                        <label for="star4"></label>
+                                        <input value="3" name="rating" id="star3" type="radio">
+                                        <label for="star3"></label>
+                                        <input value="2" name="rating" id="star2" type="radio">
+                                        <label for="star2"></label>
+                                        <input value="1" name="rating" id="star1" type="radio">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="dificuldade"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 card-col img-card">
+                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
+                            </div>
+                            <div class="col-12 col-sm-6 card-col card-content">
+                                <div class="card-title">Vaso de base de garrafa PET</div>
+                                <div class="card-subtitle">Por @carlinhos123</div>
+                                <div class="card-text">
+                                    <div class="rating">
+                                        <input value="5" name="rating" id="star5" type="radio">
+                                        <label for="star5"></label>
+                                        <input value="4" name="rating" id="star4" type="radio">
+                                        <label for="star4"></label>
+                                        <input value="3" name="rating" id="star3" type="radio">
+                                        <label for="star3"></label>
+                                        <input value="2" name="rating" id="star2" type="radio">
+                                        <label for="star2"></label>
+                                        <input value="1" name="rating" id="star1" type="radio">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="dificuldade"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 card-col img-card">
+                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
+                            </div>
+                            <div class="col-12 col-sm-6 card-col card-content">
+                                <div class="card-title">Vaso de base de garrafa PET</div>
+                                <div class="card-subtitle">Por @carlinhos123</div>
+                                <div class="card-text">
+                                    <div class="rating">
+                                        <input value="5" name="rating" id="star5" type="radio">
+                                        <label for="star5"></label>
+                                        <input value="4" name="rating" id="star4" type="radio">
+                                        <label for="star4"></label>
+                                        <input value="3" name="rating" id="star3" type="radio">
+                                        <label for="star3"></label>
+                                        <input value="2" name="rating" id="star2" type="radio">
+                                        <label for="star2"></label>
+                                        <input value="1" name="rating" id="star1" type="radio">
+                                        <label for="star1"></label>
+                                    </div>
+                                    <div class="dificuldade"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
-
-        <div class="center"> <!-- Posicionar um em cima do outro e sobrepor - mudar a porcentagem de acordo com a review -->
-            teste da estrela
-            <div class="estrela">aaaaaaaaaa
-                <div class="preenchimento">aaaaa</div>
-            </div>
-        </div>
     </main>
 
     <footer>
