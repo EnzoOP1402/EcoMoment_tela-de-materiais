@@ -1,0 +1,49 @@
+/*Rodapé */
+.menu{
+    background-color: #3b5364;
+}
+.logo{
+    width: 200px;
+}
+.logoCamp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linha{
+    border-bottom: 1px solid black;
+}
+.icones{
+    display: flex;
+    justify-content: space-around;
+}
+.mobile{
+    width: 130px;
+}
+
+/*Card de ideias*/
+.ideias{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card{
+    width: 500px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card-col{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card-content{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

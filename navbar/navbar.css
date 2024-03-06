@@ -1,0 +1,208 @@
+/*Começo da NavBar*/
+
+/*Começo animação*/
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+.cta span {
+  padding-bottom: 7px;
+  font-size: 17px;
+  padding-right: 14px;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  border: none;
+  background: none;
+  transform: translateX(0);
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:active svg {
+  border: none;
+  background: none;
+  transform: scale(0.9);
+}
+
+/*cadastro*/
+.cadastro {
+  position: relative;
+  color: #4E9E5A;
+  padding-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+}
+
+.cadastro:after {
+  content: "";
+  position: absolute;
+  width: 86%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #004852;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .cadastro:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/*login*/
+.login {
+  position: relative;
+  color: #4E9E5A;
+  padding-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+}
+
+.login:after {
+  content: "";
+  position: absolute;
+  width: 83%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #004852;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .login:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/*contato*/
+.contato {
+  position: relative;
+  color: #4E9E5A;
+  padding-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+}
+
+.contato:after {
+  content: "";
+  position: absolute;
+  width: 83%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #004852;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .contato:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/*sobreNos*/
+.sobreNos {
+  position: relative;
+  color: #4E9E5A;
+  padding-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+}
+
+.sobreNos:after {
+  content: "";
+  position: absolute;
+  width: 87%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #004852;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .sobreNos:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/*ideias*/
+.ideias {
+  position: relative;
+  color: #4E9E5A;
+  padding-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+}
+
+.ideias:after {
+  content: "";
+  position: absolute;
+  width: 79%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #004852;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .ideias:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/*Fim animação*/
+
+button{
+  background-color: #520000;
+}
+
+.nav-item{
+  color:#4E9E5A;
+  font-weight: bold;
+}
+
+.animacao:hover{
+  color: #004852;
+}
+
+#nav-link{
+  color: #4E9E5A;
+}
+
+.navbar{
+  background-color: #F4F4F4;
+}
+
+.navBar{
+  background-color: #F4F4F4;
+}
+
+.navbarAccessed{
+  color: #57cc99;
+}
+
+.navbarIcon{
+  height: 50px;
+}
+
+/*Fim da NavBar*/
