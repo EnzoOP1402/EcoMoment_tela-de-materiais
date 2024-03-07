@@ -205,4 +205,14 @@ button{
   height: 50px;
 }
 
+@media (min-width: 768px){
+  .navbar-collapse{
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 /*Fim da NavBar*/
