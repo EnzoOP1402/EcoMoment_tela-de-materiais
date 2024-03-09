@@ -1,87 +1,80 @@
 <?php
-    $material = $_REQUEST['material'];
+    // $idMaterial = $_REQUEST['material'];
+    $idMaterial = 1; //EU esqueci a sintaxe pra mandar pela url e fiz assim pq tava mais fácil, se vc lembrar é só descomentar a linha de cima e apagar essa
+    $material = '';
+    $cor = '';
+    $descricao = '';
+    $origem = '';
+    $descartar = '';
+    $alternativas = '';
 
-    switch ($material){
-        case 'plastico':
+    include 'connection.php';
+
+    $sql = 'SELECT * FROM prototipo_info_materiais WHERE idMaterial = '.$idMaterial;
+    $result = $con->query($sql);
+
+    if ($result->num_rows > 0){
+        while ($row = $result->fetch_assoc()){
+            $material = $row['nome'];
+            $cor = $row['cor'];
+            $descricao = $row['descricao'];
+            $origem = $row['origem'];
+            $descartar = $row['descartar'];
+            $alternativas = $row['alternativas'];
+        }
+    }
+    else{
+        echo 'Nenhuma postagem encontrada';
+    }
+
+    $con->close();
+
+    switch ($idMaterial){
+        case 1:
             {
-                $material = 'PLÁSTICO';
                 $materialLower = 'plástico';
-                $cor = '#cf1212';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/residuos-plasticos.png" alt="Ícone de sacola plástica">';
-                $descricao = 'O plástico, do grego “plástikos” (Piatti T.M., 2005), é um material formado por polímeros (macromoléculas) de carbono, cuja fonte mais comum de matéria prima é o petróleo (Cardoso M.M., 2013). Por essa ser uma fonte não renovável, a degradação do objeto na natureza é extremamente complexa, demorada e muito prejudicial, uma vez que ao passar do tempo se prolifera em microplásticos (Parlamento Europeu, 2018).<br>Entretanto, o plástico é infelizmente muito presente em nossas vidas por ser a base de quase todos os utensílios cotidianos, como sacolas, garrafas, canudos, entre outros demasiadamente prejudiciais tanto para vida humana quanto para a natureza e a vida marinha.';
-                $origem = 'Origem Plástico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $descartar = 'Descartar Plástico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $alternativas = 'Alternativas Plástico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
                 break;
             }
 
-        case 'metal':
+        case 2:
             {
-                $material = 'METAL';
                 $materialLower = 'metal';
-                $cor = '#ffc30f';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/metal.png" alt="Ícone de sacola plástica">';
-                $descricao = 'Descrição Metal - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $origem = 'Origem Metal - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $descartar = 'Descartar Metal - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $alternativas = 'Alternativas Metal - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
                 break;
             }
 
-        case 'papel':
+        case 3:
             {
-                $material = 'PAPEL';
                 $materialLower = 'papel';
-                $cor = '#55a4dd';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/papel.png" alt="Ícone de sacola plástica">';
-                $descricao = 'Descrição Papel - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $origem = 'Origem Papel - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $descartar = 'Descartar Papel - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $alternativas = 'Alternativas Papel - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
                 break;
             }
 
-        case 'vidro':
+        case 4:
             {
-                $material = 'VIDRO';
                 $materialLower = 'vidro';
-                $cor = '#4e9e5a';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/vidro.png" alt="Ícone de sacola plástica">';
-                $descricao = 'Descrição Vidro - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $origem = 'Origem Vidro - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $descartar = 'Descartar Vidro - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $alternativas = 'Alternativas Vidro - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
                 break;
             }
 
-        case 'madeira':
+        case 5:
             {
-                $material = 'MADEIRA';
                 $materialLower = 'madeira';
-                $cor = '#7f451d';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/madeira.png" alt="Ícone de sacola plástica">';
-                $descricao = 'Descrição Madeira - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $origem = 'Origem Madeira - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $descartar = 'Descartar Madeira - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $alternativas = 'Alternativas Madeira - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
                 break;
             }
 
-        case 'organico':
+        case 6:
             {
-                $material = 'RESÍDUO ORGÂNICO';
-                $materialLower = 'o resíduo orgânico';
-                $cor = '#a8642b';
-                $imagem = '<img class="imgMaterial" src="icones-materiais/desperdicio-organico.png" alt="Ícone de sacola plástica">';
-                $descricao = 'Descrição Orgânico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $origem = 'Origem Orgânico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $descartar = 'Descartar Orgânico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
-                $alternativas = 'Alternativas Orgânico - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, cumque suscipit? Rem accusamus eos ea aspernatur repellendus eligendi nihil repudiandae tempore enim doloribus, cupiditate sit autem placeat repellat praesentium, quod sint facere laboriosam in nobis dolores!';
+                $materialLower = 'o resíduo orgânico';                $imagem = '<img class="imgMaterial" src="icones-materiais/desperdicio-organico.png" alt="Ícone de sacola plástica">';
                 break;
             }
             
 
     }
+
+    
 ?>
 
 <!DOCTYPE html>
