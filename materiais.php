@@ -1,4 +1,6 @@
 <?php
+
+    //Conteúdo
     // $idMaterial = $_REQUEST['material'];
     $idMaterial = 1; //EU esqueci a sintaxe pra mandar pela url e fiz assim pq tava mais fácil, se vc lembrar é só descomentar a linha de cima e apagar essa
     $material = '';
@@ -24,7 +26,7 @@
         }
     }
     else{
-        echo 'Nenhuma postagem encontrada';
+        echo 'Material não identificado.';
     }
 
     $con->close();
@@ -70,8 +72,6 @@
                 $materialLower = 'o resíduo orgânico';                $imagem = '<img class="imgMaterial" src="icones-materiais/desperdicio-organico.png" alt="Ícone de sacola plástica">';
                 break;
             }
-            
-
     }
 
     
@@ -82,6 +82,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,7 +126,7 @@
     </style>
 </head>
 
-<body>
+<body onload="carregaPostagem()">
     <?php 
         require_once('navbar/navbar.html');
     ?>
@@ -240,164 +241,18 @@
                     </form>
                     </div>
                 </div>
-                <div class="container-fluid mx-1 row center nunito ideias mt-3">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 card-col img-card">
-                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                            </div>
-                            <div class="col-12 col-sm-6 card-col card-content">
-                                <div class="card-title">Vaso de base de garrafa PET</div>
-                                <div class="card-subtitle">Por @carlinhos123</div>
-                                <div class="card-text">
-                                    <div class="rating">
-                                        <input value="5" name="rating" id="star5" type="radio">
-                                        <label for="star5"></label>
-                                        <input value="4" name="rating" id="star4" type="radio">
-                                        <label for="star4"></label>
-                                        <input value="3" name="rating" id="star3" type="radio">
-                                        <label for="star3"></label>
-                                        <input value="2" name="rating" id="star2" type="radio">
-                                        <label for="star2"></label>
-                                        <input value="1" name="rating" id="star1" type="radio">
-                                        <label for="star1"></label>
-                                    </div>
-                                    <div class="dificuldade"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 card-col img-card">
-                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                            </div>
-                            <div class="col-12 col-sm-6 card-col card-content">
-                                <div class="card-title">Vaso de base de garrafa PET</div>
-                                <div class="card-subtitle">Por @carlinhos123</div>
-                                <div class="card-text">
-                                    <div class="rating">
-                                        <input value="5" name="rating" id="star5" type="radio">
-                                        <label for="star5"></label>
-                                        <input value="4" name="rating" id="star4" type="radio">
-                                        <label for="star4"></label>
-                                        <input value="3" name="rating" id="star3" type="radio">
-                                        <label for="star3"></label>
-                                        <input value="2" name="rating" id="star2" type="radio">
-                                        <label for="star2"></label>
-                                        <input value="1" name="rating" id="star1" type="radio">
-                                        <label for="star1"></label>
-                                    </div>
-                                    <div class="dificuldade"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 card-col img-card">
-                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                            </div>
-                            <div class="col-12 col-sm-6 card-col card-content">
-                                <div class="card-title">Vaso de base de garrafa PET</div>
-                                <div class="card-subtitle">Por @carlinhos123</div>
-                                <div class="card-text">
-                                    <div class="rating">
-                                        <input value="5" name="rating" id="star5" type="radio">
-                                        <label for="star5"></label>
-                                        <input value="4" name="rating" id="star4" type="radio">
-                                        <label for="star4"></label>
-                                        <input value="3" name="rating" id="star3" type="radio">
-                                        <label for="star3"></label>
-                                        <input value="2" name="rating" id="star2" type="radio">
-                                        <label for="star2"></label>
-                                        <input value="1" name="rating" id="star1" type="radio">
-                                        <label for="star1"></label>
-                                    </div>
-                                    <div class="dificuldade"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 card-col img-card">
-                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                            </div>
-                            <div class="col-12 col-sm-6 card-col card-content">
-                                <div class="card-title">Vaso de base de garrafa PET</div>
-                                <div class="card-subtitle">Por @carlinhos123</div>
-                                <div class="card-text">
-                                    <div class="rating">
-                                        <input value="5" name="rating" id="star5" type="radio">
-                                        <label for="star5"></label>
-                                        <input value="4" name="rating" id="star4" type="radio">
-                                        <label for="star4"></label>
-                                        <input value="3" name="rating" id="star3" type="radio">
-                                        <label for="star3"></label>
-                                        <input value="2" name="rating" id="star2" type="radio">
-                                        <label for="star2"></label>
-                                        <input value="1" name="rating" id="star1" type="radio">
-                                        <label for="star1"></label>
-                                    </div>
-                                    <div class="dificuldade"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 card-col img-card">
-                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                            </div>
-                            <div class="col-12 col-sm-6 card-col card-content">
-                                <div class="card-title">Vaso de base de garrafa PET</div>
-                                <div class="card-subtitle">Por @carlinhos123</div>
-                                <div class="card-text">
-                                    <div class="rating">
-                                        <input value="5" name="rating" id="star5" type="radio">
-                                        <label for="star5"></label>
-                                        <input value="4" name="rating" id="star4" type="radio">
-                                        <label for="star4"></label>
-                                        <input value="3" name="rating" id="star3" type="radio">
-                                        <label for="star3"></label>
-                                        <input value="2" name="rating" id="star2" type="radio">
-                                        <label for="star2"></label>
-                                        <input value="1" name="rating" id="star1" type="radio">
-                                        <label for="star1"></label>
-                                    </div>
-                                    <div class="dificuldade"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 card-col img-card">
-                                <img src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                            </div>
-                            <div class="col-12 col-sm-6 card-col card-content">
-                                <div class="card-title">Vaso de base de garrafa PET</div>
-                                <div class="card-subtitle">Por @carlinhos123</div>
-                                <div class="card-text">
-                                    <div class="rating">
-                                        <input value="5" name="rating" id="star5" type="radio">
-                                        <label for="star5"></label>
-                                        <input value="4" name="rating" id="star4" type="radio">
-                                        <label for="star4"></label>
-                                        <input value="3" name="rating" id="star3" type="radio">
-                                        <label for="star3"></label>
-                                        <input value="2" name="rating" id="star2" type="radio">
-                                        <label for="star2"></label>
-                                        <input value="1" name="rating" id="star1" type="radio">
-                                        <label for="star1"></label>
-                                    </div>
-                                    <div class="dificuldade"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="container-fluid mx-1 row center nunito ideias mt-3" id="row-ideias">
                     
+                    <!--Área das ideias-->
+                    <?php
+                        //Carregamento das ideias de reutilazação
+
+                        include 'script-materiais.php';
+                        foreach($postagens as $post){
+                            echo $post;
+                        }
+                    ?>
+
                 </div>
             </div>
         </section>
@@ -439,6 +294,7 @@
             }
             
         }
+
     </script>
 </body>
 </html>

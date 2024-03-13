@@ -11,6 +11,10 @@
 	$username="cl202247";
 	$password="ENVI2224*";
 	$dbname="cl202247";
-
-	mysqli_connect($hostname,$username, $password) or die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+	$link = mysqli_connect($hostname,$username, $password) or die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+	
 	mysqli_select_db($con ,$dbname);
+	mysqli_query($link,'SET NAMES "utf8"') or die ('Erro na SQL'.mysqli_error($link));
+	mysqli_query($link, 'SET character_set_connection=utf8') or die ('Erro na SQL'.mysqli_error($link));
+	mysqli_query($link, 'SET character_set_client=utf8') or die ('Erro na SQL'.mysqli_error($link));
+	mysqli_query($link, 'SET character_set_results=utf8') or die ('Erro na SQL'.mysqli_error($link));
