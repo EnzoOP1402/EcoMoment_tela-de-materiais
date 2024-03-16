@@ -2,10 +2,30 @@
 class Ideias {
     private $nomeIdeia;
     private $userIdeia;
+    private $numCurtidas = 0;
+    private $descricaoPostagem;
+    private $materiaisNecessarios;
+    private $instrucoesPostagem;
+    private $materialPostagem;
     private $dificuldadeIdeia;
 
+    
+
     //Construtor
-    public function Ideias($nome, $usuario, $dificuldade){
+
+    public function criaIdeia($nome, $usuario, $descricao, $materiaisNec, $instrucoes, $materialPost, $dificuldade){
+        $this->nomeIdeia = $nome;
+        $this->userIdeia = $usuario;
+        $this->numCurtidas = 0;
+        $this->descricaoPostagem = $descricao;
+        $this->materiaisNecessarios = $materiaisNec;
+        $this->instrucoesPostagem = $instrucoes;
+        $this->materialPostagem = $materialPost;
+        $this->dificuldadeIdeia = $dificuldade;
+    }
+
+
+    public function __construct($nome, $usuario, $dificuldade){
         $this->nomeIdeia = $nome;
         $this->userIdeia = $usuario;
         $this->dificuldadeIdeia = $dificuldade;
@@ -13,7 +33,7 @@ class Ideias {
 
     //Métodos
 
-    public function createIdeia($nome, $usuario, $dificuldade){
+    public function createCardIdeia($nome, $usuario, $dificuldade){
         return '
         <div class="card">
             <div class="row">
@@ -50,7 +70,7 @@ class Ideias {
     }
       
     public function setNomeIdeia($name) {
-    $this->nomeIdeia= $name;
+    $this->nomeIdeia = $name;
     }
 
     public function getUserIdeia() {
@@ -58,7 +78,47 @@ class Ideias {
     }
       
     public function setUserIdeia($name) {
-    $this->userIdeia= $name;
+    $this->userIdeia = $name;
+    }
+
+    public function getNumCurtidas() {
+        return $this->numCurtidas;
+    }
+      
+    public function setNumCurtidas($name) {
+    $this->numCurtidas = $name;
+    }
+
+    public function getDescricaoPostagem() {
+        return $this->descricaoPostagem;
+    }
+      
+    public function setDescricaoPostagem($name) {
+    $this->descricaoPostagem = $name;
+    }
+
+    public function getMateriaisNecessarios() {
+        return $this->materiaisNecessarios;
+    }
+      
+    public function setMateriaisNecessarios($name) {
+    $this->materiaisNecessarios = $name;
+    }
+
+    public function getInstrucoesPostagem() {
+        return $this->instrucoesPostagem;
+    }
+      
+    public function setInstrucoesPostagem($name) {
+    $this->instrucoesPostagem = $name;
+    }
+
+    public function getMaterialPostagem() {
+        return $this->materialPostagem;
+    }
+      
+    public function setMaterialPostagem($name) {
+    $this->materialPostagem = $name;
     }
 
     public function getDificuldadeIdeia() {

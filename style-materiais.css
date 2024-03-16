@@ -22,11 +22,16 @@ h1{
     text-shadow: 1px 1px 5px #d9d9d9;
 }
 
+a{
+    text-decoration: none;
+}
+
 .center{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .imgMaterial{
     width: 45px;
 }
@@ -42,11 +47,24 @@ h1{
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
 }
 
 .filtro:hover{
     background-color: #e8e8e8;
     box-shadow: 1px 1px 5px #d9d9d9;
+}
+
+#filtro1{
+    cursor: pointer;
+}
+
+#filtro2{
+    cursor: pointer;
+}
+
+#filtro3{
+    cursor: pointer;
 }
 
 .pesquisa{
@@ -150,7 +168,68 @@ h1{
 .dificuldade-media{
     background-color: #ffec15;
 }
-.dificuldade-facil{
+.dificuldade-dificil{
     background-color: red;
+}
+
+/* Postar nova ideia */
+.novaIdeia{
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    width: 50%;
+    color: black;
+    font-size: 16px;
+}
+
+#search2:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.button{
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 16px;
+    color: black;
+    background-color: #4E9E5A;
+    border: 2px solid #7AC143;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #7AC143;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+    scale: 3;
+}
+
+.button:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.button:active {
+    scale: 1;
 }
   

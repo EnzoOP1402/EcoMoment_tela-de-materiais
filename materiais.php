@@ -1,80 +1,5 @@
 <?php
-
-    //Conteúdo
-    // $idMaterial = $_REQUEST['material'];
-    $idMaterial = 1; //EU esqueci a sintaxe pra mandar pela url e fiz assim pq tava mais fácil, se vc lembrar é só descomentar a linha de cima e apagar essa
-    $material = '';
-    $cor = '';
-    $descricao = '';
-    $origem = '';
-    $descartar = '';
-    $alternativas = '';
-
-    include 'connection.php';
-
-    $sql = 'SELECT * FROM prototipo_info_materiais WHERE idMaterial = '.$idMaterial;
-    $result = $con->query($sql);
-
-    if ($result->num_rows > 0){
-        while ($row = $result->fetch_assoc()){
-            $material = $row['nome'];
-            $cor = $row['cor'];
-            $descricao = $row['descricao'];
-            $origem = $row['origem'];
-            $descartar = $row['descartar'];
-            $alternativas = $row['alternativas'];
-        }
-    }
-    else{
-        echo 'Material não identificado.';
-    }
-
-    $con->close();
-
-    switch ($idMaterial){
-        case 1:
-            {
-                $materialLower = 'plástico';
-                $imagem = '<img class="imgMaterial" src="icones-materiais/residuos-plasticos.png" alt="Ícone de sacola plástica">';
-                break;
-            }
-
-        case 2:
-            {
-                $materialLower = 'metal';
-                $imagem = '<img class="imgMaterial" src="icones-materiais/metal.png" alt="Ícone de sacola plástica">';
-                break;
-            }
-
-        case 3:
-            {
-                $materialLower = 'papel';
-                $imagem = '<img class="imgMaterial" src="icones-materiais/papel.png" alt="Ícone de sacola plástica">';
-                break;
-            }
-
-        case 4:
-            {
-                $materialLower = 'vidro';
-                $imagem = '<img class="imgMaterial" src="icones-materiais/vidro.png" alt="Ícone de sacola plástica">';
-                break;
-            }
-
-        case 5:
-            {
-                $materialLower = 'madeira';
-                $imagem = '<img class="imgMaterial" src="icones-materiais/madeira.png" alt="Ícone de sacola plástica">';
-                break;
-            }
-
-        case 6:
-            {
-                $materialLower = 'o resíduo orgânico';                $imagem = '<img class="imgMaterial" src="icones-materiais/desperdicio-organico.png" alt="Ícone de sacola plástica">';
-                break;
-            }
-    }
-
-    
+    require_once ('script-materiais.php');
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styleMateriais.css">
+    <link rel="stylesheet" href="style-materiais.css">
     <title><?=$material?></title><!--Variável Php-->
     <style>
         .btnPesq{
@@ -126,13 +51,14 @@
     </style>
 </head>
 
-<body onload="carregaPostagem()">
-    <?php 
-        require_once('navbar/navbar.html');
-    ?>
+<body>
+    <header>
+        <?php
+            require_once('navbar/navbar.html');
+        ?>
+    </header>
 
     <main id="navbarMargin">
-        <!-- Navegação em tab control -> mudar nome, cor e conteúdo dos componentes conforme o tipo de material-->
         <!--Informações sobre o material-->
         <section class="mt-5">
             <div class="container">
@@ -235,7 +161,7 @@
                     <div class="col-7 col-sm-5 col-lg-3 pesquisa">
                     <form class="d-flex" role="search">
                         <div class="input-group">
-                            <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <input class="form-control" id="search2" type="search" placeholder="Buscar" aria-label="Buscar">
                             <button class="btn btnPesq input-group-text" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
@@ -246,10 +172,14 @@
                     <!--Área das ideias-->
                     <?php
                         //Carregamento das ideias de reutilazação
-
-                        include 'script-materiais.php';
-                        foreach($postagens as $post){
-                            echo $post;
+                        if ($existe){       
+                            foreach($postagens as $post){
+                                echo $post;
+                            }
+                        }
+                        else{
+                            echo '<div class="novaIdeia">Nenhuma postagem cadastrada<br> <br> 
+                            <a href="form-publicar-ideia.php"><button class="button">Publicar ideia</button></a></div>';
                         }
                     ?>
 
