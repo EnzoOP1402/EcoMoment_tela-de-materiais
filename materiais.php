@@ -48,6 +48,10 @@
         #navbarMargin{
             margin-top: 90px;
         }
+
+        .table .tituloTabela{
+            color: <?=$cor?>;
+        }
     </style>
 </head>
 
@@ -75,24 +79,24 @@
                 <div class="d-none d-lg-block">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tab-list">
-                            <button class="nav-link nunito active" id="nav-definicao-tab" data-bs-toggle="tab" data-bs-target="#nav-definicao" type="button" role="tab" aria-controls="nav-definicao" aria-selected="true">O que é <?=$materialLower?>?</button>
-                            <button class="nav-link nunito" id="nav-origem-tab" data-bs-toggle="tab" data-bs-target="#nav-origem" type="button" role="tab" aria-controls="nav-origem">De onde vem?</button>
-                            <button class="nav-link nunito" id="nav-descartar-tab" data-bs-toggle="tab" data-bs-target="#nav-descartar" type="button" role="tab" aria-controls="nav-descartar">Como fazer o descarte correto?</button>
-                            <button class="nav-link nunito" id="nav-alternativas-tab" data-bs-toggle="tab" data-bs-target="#nav-alternativas" type="button" role="tab" aria-controls="nav-alternativas">Alternativas sustentáveis</button>
+                            <button class="nav-link nunito active" id="nav-definicao-tab" data-bs-toggle="tab" data-bs-target="#nav-definicao" type="button" role="tab" aria-controls="nav-definicao" aria-selected="true"><?=$tabDesc?></button>
+                            <button class="nav-link nunito" id="nav-origem-tab" data-bs-toggle="tab" data-bs-target="#nav-origem" type="button" role="tab" aria-controls="nav-origem"><?=$tabOrigem?></button>
+                            <button class="nav-link nunito" id="nav-descartar-tab" data-bs-toggle="tab" data-bs-target="#nav-descartar" type="button" role="tab" aria-controls="nav-descartar"><?=$tabDescarte?></button>
+                            <button class="nav-link nunito" id="nav-alternativas-tab" data-bs-toggle="tab" data-bs-target="#nav-alternativas" type="button" role="tab" aria-controls="nav-alternativas"><?=$tabAlt?></button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active p-3" id="nav-definicao" role="tabpanel" aria-labelledby="nav-definicao-tab">
-                            <p class="nunito"><?=$descricao?></p>
+                            <?=$descricao?>
                         </div>
                         <div class="tab-pane fade show p-3" id="nav-origem" role="tabpanel" aria-labelledby="nav-origem-tab">
-                            <p class="nunito"><?=$origem?></p>
+                            <?=$origem?>
                         </div>
                         <div class="tab-pane fade show p-3" id="nav-descartar" role="tabpanel" aria-labelledby="nav-descartar-tab">
-                            <p class="nunito"><?=$descartar?></p>
+                            <?=$descartar?>
                         </div>
                         <div class="tab-pane fade show p-3" id="nav-alternativas" role="tabpanel" aria-labelledby="nav-alternativas-tab">
-                            <p class="nunito"><?=$alternativas?></p>
+                            <?=$alternativas?>
                         </div>
                     </div>
                 </div>
@@ -101,7 +105,7 @@
                     <div class="accordion nunito" id="chapters">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading-1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="true" aria-controls="chapter-1">O que é <?=$materialLower?>?</button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="true" aria-controls="chapter-1"><?=$tabDesc?></button>
                             </h2>
                             <div class="accordion-collapse collapse show" id="chapter-1" aria-labelledby="heading-1" data-bs-parent="#chapters">
                                 <div class="accordion-body">
@@ -111,7 +115,7 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading-2">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-2" aria-expanded="true" aria-controls="chapter-2">De onde vem?</button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-2" aria-expanded="true" aria-controls="chapter-2"><?=$tabOrigem?></button>
                             </h2>
                             <div class="accordion-collapse collapse" id="chapter-2" aria-labelledby="heading-2" data-bs-parent="#chapters">
                                 <div class="accordion-body">
@@ -121,7 +125,7 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading-3">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-3" aria-expanded="true" aria-controls="chapter-3">Como fazer o descarte correto?</button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-3" aria-expanded="true" aria-controls="chapter-3"><?=$tabDescarte?></button>
                             </h2>
                             <div class="accordion-collapse collapse" id="chapter-3" aria-labelledby="heading-3" data-bs-parent="#chapters">
                                 <div class="accordion-body">
@@ -131,7 +135,7 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading-4">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-4" aria-expanded="true" aria-controls="chapter-4">Alternativas sustentáveis</button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-4" aria-expanded="true" aria-controls="chapter-4"><?=$tabAlt?></button>
                             </h2>
                             <div class="accordion-collapse collapse" id="chapter-4" aria-labelledby="heading-4" data-bs-parent="#chapters">
                                 <div class="accordion-body">

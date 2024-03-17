@@ -34,42 +34,61 @@
     switch ($idMaterial){
         case 1:
             {
-                $materialLower = 'plástico';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/residuos-plasticos.png" alt="Ícone de sacola plástica">';
+                $tabDesc = 'O que é plástico?';
+                $tabOrigem = 'De onde vem?';
+                $tabDescarte = 'Como fazer o descarte correto?';
+                $tabAlt = 'Alternativas sustentáveis';
                 break;
             }
 
         case 2:
             {
-                $materialLower = 'metal';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/metal.png" alt="Ícone de sacola plástica">';
+                $tabDesc = 'O que é metal?';
+                $tabOrigem = 'De onde vem?';
+                $tabDescarte = 'Como fazer o descarte correto?';
+                $tabAlt = 'Alternativas sustentáveis';
                 break;
             }
 
         case 3:
             {
-                $materialLower = 'papel';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/papel.png" alt="Ícone de sacola plástica">';
+                $tabDesc = 'O que é papel?';
+                $tabOrigem = 'De onde vem?';
+                $tabDescarte = 'Como fazer o descarte correto?';
+                $tabAlt = 'Alternativas sustentáveis';
                 break;
             }
 
         case 4:
             {
-                $materialLower = 'vidro';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/vidro.png" alt="Ícone de sacola plástica">';
+                $tabDesc = 'O que é vidro?';
+                $tabOrigem = 'De onde vem?';
+                $tabDescarte = 'Como fazer o descarte correto?';
+                $tabAlt = 'Alternativas sustentáveis';
                 break;
             }
 
         case 5:
             {
-                $materialLower = 'madeira';
                 $imagem = '<img class="imgMaterial" src="icones-materiais/madeira.png" alt="Ícone de sacola plástica">';
+                $tabDesc = 'O que é madeira?';
+                $tabOrigem = 'De onde vem?';
+                $tabDescarte = 'Como fazer o descarte correto?';
+                $tabAlt = 'Alternativas sustentáveis';
                 break;
             }
 
         case 6:
             {
-                $materialLower = 'o resíduo orgânico';                $imagem = '<img class="imgMaterial" src="icones-materiais/desperdicio-organico.png" alt="Ícone de sacola plástica">';
+                $imagem = '<img class="imgMaterial" src="icones-materiais/desperdicio-organico.png" alt="Ícone de sacola plástica">';
+                $tabDesc = 'O que é resíduo orgânico?';
+                $tabOrigem = 'O que é a compostagem?';
+                $tabDescarte = 'Passo a passo da compostagem';
+                $tabAlt = 'Tipos de compostagem';
                 break;
             }
     }

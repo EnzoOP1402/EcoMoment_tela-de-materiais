@@ -232,4 +232,11 @@ a{
 .button:active {
     scale: 1;
 }
+
+/*Tabela dos materiais*/
+.table{
+    --bs-body-bg: transparent;
+}
+
+
   
