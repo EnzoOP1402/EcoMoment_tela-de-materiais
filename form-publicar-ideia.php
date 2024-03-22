@@ -37,8 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-padrao.css">
     <link rel="stylesheet" href="style-publicar-ideia.css">
     <title>Publicar ideia</title>
+    <style>
+        .obrigatorio{
+            color: red;
+        }
+
+        #sub-titulo{
+            font-size: 25px;
+        }
+    </style>
 </head>
 <body>
     <header>

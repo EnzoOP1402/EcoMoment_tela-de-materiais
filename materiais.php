@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-padrao.css">
     <link rel="stylesheet" href="style-materiais.css">
     <title><?=$material?></title><!--Variável Php-->
     <style>
@@ -182,11 +183,15 @@
                             }
                         }
                         else{
-                            echo '<div class="novaIdeia">Nenhuma postagem cadastrada<br> <br> 
-                            <a href="form-publicar-ideia.php"><button class="button">Publicar ideia</button></a></div>';
+                            echo '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
                         }
                     ?>
-
+                    
+                </div>
+                <div class="container-fluid ideias novaIdeia center">
+                    <a href="form-publicar-ideia.php">
+                        <button class="button">Publicar ideia</button>
+                    </a>
                 </div>
             </div>
         </section>

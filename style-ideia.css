@@ -1,0 +1,31 @@
+#sub-titulo{
+    font-size: 20px;
+}
+
+.c-inicio{
+    width: 60%;
+}
+
+/*Início do Carrosel*/
+
+.cards-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-wrapper > .card{
+    height: 13em;
+    text-align: center;
+    box-shadow: none;
+}
+
+.cards-wrapper > .card > .card-body{
+    height: 2em;
+
+}
+
+#carouselExampleControls, #carouselExampleControlsVidro, #carouselExampleControlsPapel, #carouselExampleControlsMetal, #carouselExampleControlsOrganico, #carouselExampleControlsMadeira{
+    width: 65em;
+}
+/*Fim do Carrossel*/
