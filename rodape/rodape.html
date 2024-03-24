@@ -3,8 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rodape/rodape.css">
     <title>Rodapé</title>
+    <style>
+         /*Rodapé */
+        .menu{
+            background-color: #3b5364;
+        }
+        .logo{
+            width: 200px;
+        }
+        .logoCamp{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .linha{
+            border-bottom: 1px solid black;
+        }
+        .icones{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .mobile{
+            width: 130px;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid menu">
@@ -16,18 +43,16 @@
             <div class="col-5 linha"></div>
         </div>
         <div class="row center pb-5">
-            <div class="col-sm-1"></div>
-            <div class="col-12 col-sm-3 center icones">
+            <div class="col-12 col-sm-4 icones">
                 <img src="rodape/instagram.png" alt="Logo instagram">
                 <img src="rodape/twitter.png" alt="Logo X/Twitter">
                 <img src="rodape/pinterest.png" alt="Logo pinterest">
             </div>
-            <div class="col-sm-2 col-md-4"></div>
-            <div class="col-12 pt-4 py-sm-0 col-sm-3 center icones">
-                <img class="mobile img-fluid" src="rodape/googlePlay.png" alt="Botão 'Disponível no Google Play'">
-                <img class="mobile img-fluid" src="rodape/appStore.png" alt="Botão 'Disponível na AppStore'">
+            <div class="col-sm-2 col-lg-4"></div>
+            <div class="col-12 pt-4 py-sm-0 col-sm-4 icones">
+                <img class="mobile btn-app img-fluid" src="rodape/googlePlay.png" alt="Botão 'Disponível no Google Play'">
+                <img class="mobile btn-app img-fluid" src="rodape/appStore.png" alt="Botão 'Disponível na AppStore'">
             </div>
-            <div class="col-sm-1"></div>
         </div>
     </div>
 </body>

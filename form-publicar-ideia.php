@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $stmt = $con->prepare($sql);
     if($stmt->execute()){
-        echo '<script>document.alert("Muito obrigado! \n Sua ideia foi publicada com sucesso.")</script>';
+        echo '<script>document.alert("Muito obrigado! \n Sua ideia foi publicada com sucesso.");</script>';
     }else{
-        echo '<script>document.alert("ERRO \n Não foi possível publicar sua ideia. Verifique se há algum erro ou tente novamente.")</script>';
+        echo '<script>document.alert("ERRO \n Não foi possível publicar sua ideia. Verifique se há algum erro ou tente novamente.");</script>';
     }
 
     $con->close();

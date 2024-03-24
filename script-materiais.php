@@ -108,11 +108,13 @@
     if ($result2->num_rows > 0){
         $existe = true;
         while ($row = $result2->fetch_assoc()){
+            $idIdeia = $row['idPostagem'];
             $nomeIdeia = $row['nomePostagem'];
             $userIdeia = $row['nomeUsuario'];
             $dificuldadeIdeia = $row['dificuldadePostagem'];
-            $ideia = new Ideias($nomeIdeia, $userIdeia, $dificuldadeIdeia);
-            $postagens[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia);
+            $avaliacao = $row['avaliacaoPostagem'];
+            $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+            $postagens[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     

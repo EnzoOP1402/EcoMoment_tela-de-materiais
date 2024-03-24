@@ -6,6 +6,29 @@
     width: 60%;
 }
 
+.c-corpo{
+    width: 80%;
+}
+
+/* Container inicial */
+.topico{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.avaliacao{
+    display: flex;
+    align-items: center;
+}
+
+.dif{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
 /*Início do Carrosel*/
 
 .cards-wrapper{
@@ -25,7 +48,37 @@
 
 }
 
-#carouselExampleControls, #carouselExampleControlsVidro, #carouselExampleControlsPapel, #carouselExampleControlsMetal, #carouselExampleControlsOrganico, #carouselExampleControlsMadeira{
-    width: 65em;
+/* Descrição */
+.descricoes{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
-/*Fim do Carrossel*/
+
+.topico2{
+    background-color: #d9d9d9;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 18px;
+    display: flexbox;
+    align-items: center;
+}
+
+.sec-desc{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+/* Outras publicações */
+.outras-ideias{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.novaIdeia{
+    font-size: 14px;
+    flex-direction: row;
+    width: 100%;
+}
