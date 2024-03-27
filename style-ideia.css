@@ -21,11 +21,18 @@
 .avaliacao{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .dif{
     display: flex;
     gap: 1vw;
+    align-items: center;
+}
+
+.av-head{
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
 }
 

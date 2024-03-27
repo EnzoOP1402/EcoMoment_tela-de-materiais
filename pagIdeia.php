@@ -62,9 +62,20 @@
     </header>
 
     <main id="navbarMargin">
-        <section>
+        <section class="container mb-5">
             <h1 class="display-5 fw-bold text-center mb-2"><?=$nomeIdeia?></h1>
-            <h2 class="center mb-5" id="sub-titulo"><?=$userIdeia?></h2>
+            <h2 class="center mb-2" id="sub-titulo"><?=$userIdeia?></h2>
+            <div class="avaliacao center">
+                <div class="av-head head-1">
+                    <?php
+                        echo $ideia->carregaAvaliacao($idPostagem, $avaliacaoPostagem);
+                    ?>
+                    <span><?=$avaliacaoPostagem?>/5</span>
+                </div>
+                <div class="av-head">
+                    Avaliações: <?=$qtdeAvaliacoes?>
+                </div>
+            </div>
         </section>
 
         <!-- Início do Carrosel -->
@@ -109,14 +120,9 @@
                 <!-- Fim do carrossel -->
                 <div class="row center">
                     <div class="col-12 col-sm-4 col-md-3 topico">
-                        <div class="avaliacao rating">
-                            <?=$avaliacaoPostagem?>/5
-                            <?php
-                                echo $ideia->carregaAvaliacao($idPostagem, $avaliacaoPostagem);
-                            ?>
-                        </div>
+                        
                         <br>
-                        <p>Avaliações: <?=$qtdeAvaliacoes?></p>
+                        
                     </div>
                     <div class="col-12 col-sm-4 col-md-3 topico">
                             <div class="d-none d-sm-flex dif">Dificuldade : <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div></div>
