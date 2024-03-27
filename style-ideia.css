@@ -82,3 +82,12 @@
     flex-direction: row;
     width: 100%;
 }
+
+/* Botão ver mais */
+.button{
+    background-color: #05440f;
+}
+
+.button::before{
+    background-color: #05440f;
+}

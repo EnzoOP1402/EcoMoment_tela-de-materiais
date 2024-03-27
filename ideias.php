@@ -43,42 +43,46 @@ class Ideias {
     public function createCardIdeia($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
         <div class="card">
-            <div class="row">
-                <div class="col-12 col-sm-6 card-col img-card">
-                    <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                </div>
-                <div class="col-12 col-sm-6 card-col card-content">
-                    <div class="card-title">'.$nome.'</div>
-                    <div class="card-subtitle">'.$usuario.'</div>
-                    <div class="card-text">
-                        '.$this->carregaAvaliacao($idPost, $avaliacao).'
-                        <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+            <a href="#">
+                <div class="row">
+                    <div class="col-12 col-sm-6 card-col img-card">
+                        <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
+                    </div>
+                    <div class="col-12 col-sm-6 card-col card-content">
+                        <div class="card-title">'.$nome.'</div>
+                        <div class="card-subtitle">'.$usuario.'</div>
+                        <div class="card-text">
+                            '.$this->carregaAvaliacao($idPost, $avaliacao).'
+                            <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>';
     }
 
     public function createCardIdeia2($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
         <div class="card">
-            <div class="row">
-                <div class="col-12 card-col img-card">
-                    <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
-                </div>
-                <div class="col-12 card-col card-content">
-                    <div class="card-title">'.$nome.'</div>
-                    <div class="card-subtitle">'.$usuario.'</div>
-                    <div class="card-text">
-                        <div class="row row-av-ideia">
-                            <div class="col-sm-10 alinha-estrela">'.$this->carregaAvaliacao($idPost, $avaliacao).'</div>
-                            <div class="col-sm-2">
-                                <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+            <a href="#">
+                <div class="row">
+                    <div class="col-12 card-col img-card">
+                        <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
+                    </div>
+                    <div class="col-12 card-col card-content">
+                        <div class="card-title">'.$nome.'</div>
+                        <div class="card-subtitle">'.$usuario.'</div>
+                        <div class="card-text">
+                            <div class="row row-av-ideia">
+                                <div class="col-sm-10 alinha-estrela">'.$this->carregaAvaliacao($idPost, $avaliacao).'</div>
+                                <div class="col-sm-2">
+                                    <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>';
     }
 

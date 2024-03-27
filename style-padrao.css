@@ -22,6 +22,11 @@ h1{
     color: #05440f;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 .center{
     display: flex;
     justify-content: center;
@@ -75,9 +80,7 @@ h1{
 }
 
 .img-card{
-    padding: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 2px;
 }
 
 .img-card-ideia{
@@ -92,6 +95,7 @@ h1{
     flex-wrap: nowrap;
     flex-direction: row-reverse;
     width: 100%;
+    justify-content: flex-end;
 }
 
 .rating input {
@@ -148,10 +152,9 @@ h1{
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    width: 100%;
 }
 
-/* Postar nova ideia */
+/* Postar nova ideia / ver mais ideias */
 .novaIdeia{
     text-align: center;
     display: flex; 

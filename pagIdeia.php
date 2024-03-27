@@ -189,8 +189,8 @@
                                 }
                             ?>
                             <div class="container-fluid ideias novaIdeia center">
-                                <a href="form-publicar-ideia.php">
-                                    <button class="button">Publicar ideia</button>
+                                <a href="#">
+                                    <button class="button">Ver mais</button><!--link para a página de ideias do momento -->
                                 </a>
                             </div>
                         </div>
