@@ -74,8 +74,8 @@ class Ideias {
                         <div class="card-subtitle">'.$usuario.'</div>
                         <div class="card-text">
                             <div class="row row-av-ideia">
-                                <div class="col-sm-10 alinha-estrela">'.$this->carregaAvaliacao($idPost, $avaliacao).'</div>
-                                <div class="col-sm-2">
+                                <div class="alinha-estrela">'.$this->carregaAvaliacao($idPost, $avaliacao).'</div>
+                                <div>
                                     <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
                                 </div>
                             </div>

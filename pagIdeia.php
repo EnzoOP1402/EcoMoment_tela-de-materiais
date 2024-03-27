@@ -66,7 +66,7 @@
             <h1 class="display-5 fw-bold text-center mb-2"><?=$nomeIdeia?></h1>
             <h2 class="center mb-2" id="sub-titulo"><?=$userIdeia?></h2>
             <div class="avaliacao center">
-                <div class="av-head head-1">
+                <div class="av-head">
                     <?php
                         echo $ideia->carregaAvaliacao($idPostagem, $avaliacaoPostagem);
                     ?>
