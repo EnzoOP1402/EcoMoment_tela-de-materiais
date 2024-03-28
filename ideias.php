@@ -43,7 +43,6 @@ class Ideias {
     public function createCardIdeia($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
         <div class="card">
-            <a href="#">
                 <div class="row">
                     <div class="col-12 col-sm-6 card-col img-card">
                         <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
@@ -57,14 +56,36 @@ class Ideias {
                         </div>
                     </div>
                 </div>
-            </a>
         </div>';
     }
+    /*
+    Código acima descomprimido ↑
+
+    '
+    <div class="card">
+            <div class="row">
+                <div class="col-12 col-sm-6 card-col img-card">
+                    <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
+                </div>
+                <div class="col-12 col-sm-6 card-col card-content">
+                    <div class="card-title">'.$nome.'</div>
+                    <div class="card-subtitle">'.$usuario.'</div>
+                    <div class="card-text">
+                        '.$this->carregaAvaliacao($idPost, $avaliacao).'
+                        <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+                    </div>
+                </div>
+            </div>
+    </div>';
+
+    Código comprimido
+
+    '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></div><div class="col-12 col-sm-6 card-col card-content"><div class="card-title">'.$nome.'</div><div class="card-subtitle">'.$usuario.'</div><div class="card-text">'.$this->carregaAvaliacao($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div></div></div></div></div>';
+    */
 
     public function createCardIdeia2($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
         <div class="card">
-            <a href="#">
                 <div class="row">
                     <div class="col-12 card-col img-card">
                         <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
@@ -82,7 +103,6 @@ class Ideias {
                         </div>
                     </div>
                 </div>
-            </a>
         </div>';
     }
 

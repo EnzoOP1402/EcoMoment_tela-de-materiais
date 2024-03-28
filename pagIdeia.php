@@ -65,15 +65,16 @@
         <section class="container mb-5">
             <h1 class="display-5 fw-bold text-center mb-2"><?=$nomeIdeia?></h1>
             <h2 class="center mb-2" id="sub-titulo"><?=$userIdeia?></h2>
-            <div class="avaliacao center">
+            <div class="avaliacao center nunito">
                 <div class="av-head">
                     <?php
                         echo $ideia->carregaAvaliacao($idPostagem, $avaliacaoPostagem);
                     ?>
+                    <span style="width: 6px;"></span>
                     <span><?=$avaliacaoPostagem?>/5</span>
                 </div>
                 <div class="av-head">
-                    Avaliações: <?=$qtdeAvaliacoes?>
+                    <span class="d-none d-sm-inline-block">Avaliações: </span><span class="d-inline-block d-sm-none">Av.: </span> <span style="width: 4px;"></span><?=$qtdeAvaliacoes?>
                 </div>
             </div>
         </section>
@@ -120,12 +121,10 @@
                 <!-- Fim do carrossel -->
                 <div class="row center">
                     <div class="col-12 col-sm-4 col-md-3 topico">
-                        
-                        <br>
-                        
+                        Avaliar <!-- Adicionar estrelas para a avaliação -->
                     </div>
                     <div class="col-12 col-sm-4 col-md-3 topico">
-                            <div class="d-none d-sm-flex dif">Dificuldade : <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div></div>
+                            <div class="d-none d-sm-flex dif"><?=$dificuldadeIdeia?> <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div></div>
                             <div class="d-block d-sm-none dif"><div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div></div>
                     </div>
                     <div class="col-12 col-sm-4 col-md-3 topico">

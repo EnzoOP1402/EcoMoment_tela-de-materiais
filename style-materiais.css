@@ -21,16 +21,27 @@
     box-shadow: 1px 1px 5px #d9d9d9;
 }
 
-#filtro1{
+.filtro2{
+    background-color: #f4f4f4;
+}
+
+.filtroDflt{
     cursor: pointer;
 }
 
-#filtro2{
-    cursor: pointer;
+.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-wrap: nowrap;
+    padding: 8px;
+    line-height: 1.6;
 }
 
-#filtro3{
-    cursor: pointer;
+.drop-dif{
+    display: none;
 }
 
 .pesquisa{

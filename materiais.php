@@ -157,10 +157,21 @@
                     <div class="dropdown col-3">
                         <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="icones-materiais/ordenacao.png" alt="ícone de organização em lixeiras"> <span class="d-none d-sm-block mx-1" id="selectedFiltro">Ordenar</span> </button>
                         <ul class="dropdown-menu">
-                          <li id="filtro1" onclick="selecionaFiltro(1)"> Filtro 1</li> <!--Chama uma função de ordenar por JS-->
-                          <li id="filtro2" onclick="selecionaFiltro(2)"> Filtro 2</li>
-                          <li id="filtro3" onclick="selecionaFiltro(3)"> Filtro 3</li>
+                          <li class="filtroDflt" id="filtro1" onclick="selecionaFiltro(1)"> Dificuldade</li> <!--Chama uma função de ordenar por JS-->
+                          <li class="filtroDflt" id="filtro2" onclick="selecionaFiltro(2)"> Avaliação</li>
+                          <li class="filtroDflt" id="filtro3" onclick="selecionaFiltro(3)"> Curtidas</li>
+                          <li class="filtroDflt" id="filtro-1" onclick="selecionaFiltro(-1)"></li>
                         </ul>
+
+                        <div id="drop-dif" class="mt-2" style="display: none;">
+                            <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="icones-materiais/semaforo.png" alt="ícone de semáforo"> <span class="d-none d-sm-block mx-1" id="selectedFiltro2">Dificuldades</span> </button>
+                            <ul class="dropdown-menu">
+                              <li class="filtroDflt" id="filtro4" onclick="selecionaFiltro2(1)"> Fácil</li> <!--Chama uma função de ordenar por JS-->
+                              <li class="filtroDflt" id="filtro5" onclick="selecionaFiltro2(2)"> Média</li>
+                              <li class="filtroDflt" id="filtro6" onclick="selecionaFiltro2(3)"> Difícil</li>
+                              <li class="filtroDflt" id="filtro-2" onclick="selecionaFiltro2(-1)"></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-2 col-sm-4 col-lg-6"></div>
                     <div class="col-7 col-sm-5 col-lg-3 pesquisa">
@@ -206,26 +217,81 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script>
-
         function selecionaFiltro(n){
             switch (n){
                 case 1:
-                    document.getElementById('selectedFiltro').innerHTML = '<strong>Filtro 1</strong>';
-                    document.getElementById('filtro1').innerHTML = '<strong> Filtro 1</strong>';
-                    document.getElementById('filtro2').innerHTML = ' Filtro 2';
-                    document.getElementById('filtro3').innerHTML = ' Filtro 3';
+                    document.getElementById('selectedFiltro').innerHTML = '<strong>Dificuldade</strong>';
+                    document.getElementById('filtro1').innerHTML = '<strong> Dificuldade</strong>';
+                    document.getElementById('filtro2').innerHTML = ' Avaliação';
+                    document.getElementById('filtro3').innerHTML = ' Curtidas';
+                    document.getElementById('filtro-1').innerHTML = 'Limpar seleção';
+                    document.getElementById('drop-dif').style.display = 'block';
                     break;
                 case 2:
-                    document.getElementById('selectedFiltro').innerHTML = '<strong>Filtro 2</strong>';
-                    document.getElementById('filtro2').innerHTML = '<strong> Filtro 2</strong>';
-                    document.getElementById('filtro1').innerHTML = ' Filtro 1';
-                    document.getElementById('filtro3').innerHTML = ' Filtro 3';
+                    document.getElementById('selectedFiltro').innerHTML = '<strong>Avaliação</strong>';
+                    document.getElementById('filtro2').innerHTML = '<strong> Avaliação</strong>';
+                    document.getElementById('filtro1').innerHTML = ' Dificuldade';
+                    document.getElementById('filtro3').innerHTML = ' Curtidas';
+                    document.getElementById('filtro-1').innerHTML = 'Limpar seleção';
+                    document.getElementById('drop-dif').style.display = 'none';
+                    
                     break;
                 case 3:
-                    document.getElementById('selectedFiltro').innerHTML = '<strong>Filtro 3</strong>';
-                    document.getElementById('filtro3').innerHTML = '<strong> Filtro 3</strong>';
-                    document.getElementById('filtro2').innerHTML = ' Filtro 2';
-                    document.getElementById('filtro1').innerHTML = ' Filtro 1';
+                    document.getElementById('selectedFiltro').innerHTML = '<strong>Curtidas</strong>';
+                    document.getElementById('filtro3').innerHTML = '<strong> Curtidas</strong>';
+                    document.getElementById('filtro2').innerHTML = ' Avaliação';
+                    document.getElementById('filtro1').innerHTML = ' Dificuldade';
+                    document.getElementById('filtro-1').innerHTML = 'Limpar seleção';
+                    document.getElementById('drop-dif').style.display = 'none';
+                    break;
+                case -1:
+                    document.getElementById('selectedFiltro').innerHTML = 'Ordenar';
+                    document.getElementById('filtro3').innerHTML = ' Curtidas';
+                    document.getElementById('filtro2').innerHTML = ' Avaliação';
+                    document.getElementById('filtro1').innerHTML = ' Dificuldade';
+                    document.getElementById('filtro-1').innerHTML = '';
+                    document.getElementById('drop-dif').style.display = 'none';
+                    break;
+                default:
+                    alert('ERRO! Houve um problema ao selecionar o filtro. Tente novamente ou reinicie a página.');
+                    break;
+            }
+            
+        }
+                
+        function selecionaFiltro2(n){
+            switch (n){
+                case 1:
+                    document.getElementById('selectedFiltro2').innerHTML = '<strong>Fácil</strong>';
+                    document.getElementById('filtro4').innerHTML = '<strong> Fácil</strong>';
+                    document.getElementById('filtro5').innerHTML = ' Média';
+                    document.getElementById('filtro6').innerHTML = ' Difícil';
+                    document.getElementById('filtro-2').innerHTML = 'Limpar seleção';
+                    break;
+                case 2:
+                    document.getElementById('selectedFiltro2').innerHTML = '<strong>Média</strong>';
+                    document.getElementById('filtro5').innerHTML = '<strong> Média</strong>';
+                    document.getElementById('filtro4').innerHTML = ' Fácil';
+                    document.getElementById('filtro6').innerHTML = ' Difícil';
+                    document.getElementById('filtro-2').innerHTML = 'Limpar seleção';
+                    break;
+                case 3:
+                    document.getElementById('selectedFiltro2').innerHTML = '<strong>Difícil</strong>';
+                    document.getElementById('filtro6').innerHTML = '<strong> Difícil</strong>';
+                    document.getElementById('filtro5').innerHTML = ' Média';
+                    document.getElementById('filtro4').innerHTML = ' Fácil';
+                    document.getElementById('filtro-2').innerHTML = 'Limpar seleção';
+                    break;
+                case -1:
+                    document.getElementById('selectedFiltro').innerHTML = 'Ordenar';
+                    document.getElementById('selectedFiltro2').innerHTML = 'Dificuldades';
+                    document.getElementById('filtro1').innerHTML = 'Dificuldade';
+                    document.getElementById('filtro6').innerHTML = ' Difícil';
+                    document.getElementById('filtro5').innerHTML = ' Média';
+                    document.getElementById('filtro4').innerHTML = ' Fácil';
+                    document.getElementById('filtro-1').innerHTML = '';
+                    document.getElementById('filtro-2').innerHTML = '';
+                    document.getElementById('drop-dif').style.display = 'none';
                     break;
                 default:
                     alert('ERRO! Houve um problema ao selecionar o filtro. Tente novamente ou reinicie a página.');

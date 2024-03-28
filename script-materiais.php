@@ -120,3 +120,123 @@
     
     $con->close();
 
+
+    //Filtro 1 - fácil
+    include 'connection.php';
+
+    $postagens1 = array();
+
+    $sql3 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND dificuldadePostagem = "facil"  ORDER BY idPostagem DESC';
+    $result3 = $con->query($sql3);
+
+    if ($result3->num_rows > 0){
+        $existe = true;
+        while ($row = $result3->fetch_assoc()){
+            $idIdeia = $row['idPostagem'];
+            $nomeIdeia = $row['nomePostagem'];
+            $userIdeia = $row['nomeUsuario'];
+            $dificuldadeIdeia = $row['dificuldadePostagem'];
+            $avaliacao = $row['avaliacaoPostagem'];
+            $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+            $postagens1[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+        }
+    }
+    
+    $con->close();
+
+    //Filtro 1 - média
+    include 'connection.php';
+
+    $postagens2 = array();
+
+    $sql4 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND dificuldadePostagem = "media"  ORDER BY idPostagem DESC';
+    $result4 = $con->query($sql4);
+
+    if ($result4->num_rows > 0){
+        $existe = true;
+        while ($row = $result4->fetch_assoc()){
+            $idIdeia = $row['idPostagem'];
+            $nomeIdeia = $row['nomePostagem'];
+            $userIdeia = $row['nomeUsuario'];
+            $dificuldadeIdeia = $row['dificuldadePostagem'];
+            $avaliacao = $row['avaliacaoPostagem'];
+            $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+            $postagens2[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+        }
+    }
+    
+    $con->close();
+
+    //Filtro 1 - difícil
+    include 'connection.php';
+
+    $postagens3 = array();
+
+    $sql5 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND dificuldadePostagem = "dificil" ORDER BY idPostagem DESC';
+    $result5 = $con->query($sql5);
+
+    if ($result5->num_rows > 0){
+        $existe = true;
+        while ($row = $result5->fetch_assoc()){
+            $idIdeia = $row['idPostagem'];
+            $nomeIdeia = $row['nomePostagem'];
+            $userIdeia = $row['nomeUsuario'];
+            $dificuldadeIdeia = $row['dificuldadePostagem'];
+            $avaliacao = $row['avaliacaoPostagem'];
+            $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+            $postagens3[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+        }
+    }
+    
+    $con->close();
+
+
+    //Filtro 2 - avaliação
+    include 'connection.php';
+
+    $postagens4 = array();
+    $existe = false;
+
+    $sql6 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' ORDER BY avaliacaoPostagem DESC';
+    $result6 = $con->query($sql6);
+
+    if ($result6->num_rows > 0){
+        $existe = true;
+        while ($row = $result6->fetch_assoc()){
+            $idIdeia = $row['idPostagem'];
+            $nomeIdeia = $row['nomePostagem'];
+            $userIdeia = $row['nomeUsuario'];
+            $dificuldadeIdeia = $row['dificuldadePostagem'];
+            $avaliacao = $row['avaliacaoPostagem'];
+            $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+            $postagens4[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+        }
+    }
+    
+    $con->close();
+
+
+    //Filtro 3 - curtidas
+    include 'connection.php';
+
+    $postagens5 = array();
+    $existe = false;
+
+    $sql7 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' ORDER BY numeroCurtidas DESC';
+    $result7 = $con->query($sql7);
+
+    if ($result7->num_rows > 0){
+        $existe = true;
+        while ($row = $result7->fetch_assoc()){
+            $idIdeia = $row['idPostagem'];
+            $nomeIdeia = $row['nomePostagem'];
+            $userIdeia = $row['nomeUsuario'];
+            $dificuldadeIdeia = $row['dificuldadePostagem'];
+            $avaliacao = $row['avaliacaoPostagem'];
+            $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+            $postagens5[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+        }
+    }
+    
+    $con->close();
+
