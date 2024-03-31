@@ -300,6 +300,46 @@
             
         }
 
+        <?php
+            function pesquisar($txt){
+                //Pesquisa de ideias
+                include 'connection.php';
+    
+                $postagens5 = array();
+                $existe = false;
+    
+                $sql8 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND nomePostagem LIKE '.$txt;
+                $result8 = $con->query($sql8);
+    
+                if ($result8->num_rows > 0){
+                    $existe = true;
+                    while ($row = $result8->fetch_assoc()){
+                        $idIdeia = $row['idPostagem'];
+                        $nomeIdeia = $row['nomePostagem'];
+                        $userIdeia = $row['nomeUsuario'];
+                        $dificuldadeIdeia = $row['dificuldadePostagem'];
+                        $avaliacao = $row['avaliacaoPostagem'];
+                        $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+                        $postagens6[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+                    }
+                }
+    
+                $con->close();
+
+                /* preenchimento
+                if ($existe){       
+                    foreach($postagens as $post){
+                        echo $post;
+                    }
+                }
+                else{
+                    echo '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
+                }
+                */
+            }
+        ?>
+
     </script>
+
 </body>
 </html>

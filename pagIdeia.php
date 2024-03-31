@@ -64,10 +64,17 @@
     <main id="navbarMargin">
         <section class="container mb-5">
             <h1 class="display-5 fw-bold text-center mb-2"><?=$nomeIdeia?></h1>
-            <h2 class="center mb-2" id="sub-titulo"><?=$userIdeia?></h2>
+            <h2 class="center mb-2" id="sub-titulo"><a href="#"><?=$userIdeia?></a></h2><!--Link para a página de perfil-->
             <div class="avaliacao center nunito">
                 <div class="av-head">
                     <?php
+                        if ($dificuldadeIdeia == 'facil'){
+                            $dif = 'Fácil';
+                        } else if ($dificuldadeIdeia == 'media'){
+                            $dif = 'Média';
+                        } else if ($dificuldadeIdeia == 'dificil'){
+                            $dif = 'Difícil';
+                        }
                         echo $ideia->carregaAvaliacao($idPostagem, $avaliacaoPostagem);
                     ?>
                     <span style="width: 6px;"></span>
@@ -120,18 +127,42 @@
                 </div> -->
                 <!-- Fim do carrossel -->
                 <div class="row center">
-                    <div class="col-12 col-sm-4 col-md-3 topico">
-                        Avaliar <!-- Adicionar estrelas para a avaliação -->
+                    <div class="col-6 col-sm-4 col-md-3 topico">
+                        Avaliar: 
+                        <div class="rating-x">  
+                            <input value="5" name="rating-x" id="x-star5" type="radio" onclick="avaliar(5)">
+                            <label for="x-star5"></label>
+                            <input value="4" name="rating-x" id="x-star4" type="radio" onclick="avaliar(4)">
+                            <label for="x-star4"></label>
+                            <input value="3" name="rating-x" id="x-star3" type="radio" onclick="avaliar(3)">
+                            <label for="x-star3"></label>
+                            <input value="2" name="rating-x" id="x-star2" type="radio" onclick="avaliar(2)">
+                            <label for="x-star2"></label>
+                            <input value="1" name="rating-x" id="x-star1" type="radio" onclick="avaliar(1)">
+                            <label for="x-star1"></label>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-md-3 topico">
-                            <div class="d-none d-sm-flex dif"><?=$dificuldadeIdeia?> <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div></div>
-                            <div class="d-block d-sm-none dif"><div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 topico">
+                            <div class="d-none d-sm-flex dif">
+                                Dificuldade: <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div><?=$dif?>
+                            </div>
+                            <div class="d-inline-block d-sm-none dif">
+                                <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div><?=$dif?>
+                            </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-md-3 topico">
-                        <span><span class="d-none d-sm-block">♥</span> <?=$numCurtidas?></span>
+                    <div class="col-6 col-sm-4 col-md-3 topico">
+                        <div>
+                            <!-- <span id="img-curtida"><img src="icones-materiais/curtida-1.png" alt="ícone de coração" class="btnInteraction" onclick="curtir()"></span> -->
+                            <div class="curtida" onclick="curtir()">
+                                <img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">
+                            </div>
+                            <span id="numCurtidas" class="center"><?=$numCurtidas?></span>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-md-3 topico">
-                        <span><span class="d-none d-sm-block">Compartilhar</span> →</span>
+                    <div class="col-6 col-sm-4 col-md-3 topico">
+                        <div>
+                            <img src="icones-materiais/compartilhar.png" alt="ícone de seta para compartilhamento" class="btnInteraction" onclick="compartilhar()">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,7 +174,8 @@
                     <div class="col-12 col-lg-8 nunito descricoes mb-5">
                         <div>
                             <div class="topico2">
-                                <strong>¶ Descrição</strong>
+                                <img class="img-topico ms-2" src="icones-materiais/descricao.png" alt="Ícone de folha pautada">
+                                <strong> Descrição</strong>
                             </div>
                             <section class="sec-desc">
                                 <?=$descricaoPostagem?>
@@ -152,7 +184,8 @@
                         
                         <div>
                             <div class="topico2">
-                                <strong>¶ Materiais</strong>
+                                <img class="img-topico ms-2" src="icones-materiais/materiais.png" alt="Ícone de caixa com materiais escolares">
+                                <strong> Materiais</strong>
                             </div>
                             <section class="sec-desc">
                                 <?=$materiaisNecessarios?>
@@ -161,7 +194,8 @@
 
                         <div>
                             <div class="topico2">
-                                <strong>¶ Passo a passo</strong>
+                                <img class="img-topico ms-2" src="icones-materiais/passo-a-passo.png" alt="ícone de pegadas">
+                                <strong> Passo a passo</strong>
                             </div>
                             <section class="sec-desc">
                                 <?=$instrucoesPostagem?>
@@ -169,8 +203,12 @@
                         </div>
 
                         <div>
-                            <div class="topico2">
-                                <strong>¶ Comentários</strong>
+                            <div class="topico2" style="display: flex; justify-content: space-between;">
+                                <span>
+                                    <img class="img-topico ms-2" src="icones-materiais/balao-de-fala.png" alt="Ícone de balões de fala">
+                                    <strong> Comentários</strong>
+                                </span>
+                                <span class="me-2" style="font-size:14px;">Qtde</span>
                             </div>
                             <section class="sec-desc">
                                 Blablabla <br>Blablabla <br>Blablabla
@@ -216,6 +254,33 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+        var curtida = false;
+
+        function curtir(){
+            if (curtida == false){
+                curtida = true;
+                document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-1.png" alt="Ícone de coração sem preenchimento">';
+            } else{
+                curtida = false;
+                document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">';
+            }
+        }
+
+        function compartilhar(){
+            alert('Compartilhou')
+        }
+
+        function avaliar(n){
+            alert(`${n} estrela(s)`)
+            document.getElementById('x-star5').disabled = 'true';
+            document.getElementById('x-star4').disabled = 'true';
+            document.getElementById('x-star3').disabled = 'true';
+            document.getElementById('x-star2').disabled = 'true';
+            document.getElementById('x-star1').disabled = 'true';
+        }
+    </script>
 
 </body>
 </html>
