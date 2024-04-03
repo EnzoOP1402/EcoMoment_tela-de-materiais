@@ -71,7 +71,7 @@
                         if ($dificuldadeIdeia == 'facil'){
                             $dif = 'Fácil';
                         } else if ($dificuldadeIdeia == 'media'){
-                            $dif = 'Média';
+                            $dif = 'Médio';
                         } else if ($dificuldadeIdeia == 'dificil'){
                             $dif = 'Difícil';
                         }
@@ -126,8 +126,8 @@
                     </div>
                 </div> -->
                 <!-- Fim do carrossel -->
-                <div class="row center">
-                    <div class="col-6 col-sm-4 col-md-3 topico">
+                <div class="row center row-topico">
+                    <div class="col-6 col-sm-3 col-md-3 topico">
                         Avaliar: 
                         <div class="rating-x">  
                             <input value="5" name="rating-x" id="x-star5" type="radio" onclick="avaliar(5)">
@@ -142,15 +142,19 @@
                             <label for="x-star1"></label>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-4 col-md-3 topico">
-                            <div class="d-none d-sm-flex dif">
-                                Dificuldade: <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div><?=$dif?>
+                    <div class="col-6 col-sm-3 col-md-3 topico">
+                            <div class="d-none d-md-block d-lg-flex dif">
+                                Nível:
+                                <br>
+                                <div class="d-flex dif">
+                                    <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div><?=$dif?>
+                                </div>
                             </div>
-                            <div class="d-inline-block d-sm-none dif">
+                            <div class="d-inline-flex d-md-none dif">
                                 <div class="dificuldade dificuldade-<?=$dificuldadeIdeia?>"></div><?=$dif?>
                             </div>
                     </div>
-                    <div class="col-6 col-sm-4 col-md-3 topico">
+                    <div class="col-6 col-sm-3 col-md-3 topico">
                         <div>
                             <!-- <span id="img-curtida"><img src="icones-materiais/curtida-1.png" alt="ícone de coração" class="btnInteraction" onclick="curtir()"></span> -->
                             <div class="curtida" onclick="curtir()">
@@ -159,7 +163,7 @@
                             <span id="numCurtidas" class="center"><?=$numCurtidas?></span>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-4 col-md-3 topico">
+                    <div class="col-6 col-sm-3 col-md-3 topico">
                         <div>
                             <img src="icones-materiais/compartilhar.png" alt="ícone de seta para compartilhamento" class="btnInteraction" onclick="compartilhar()">
                         </div>
