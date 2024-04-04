@@ -96,7 +96,7 @@ class Ideias {
                 width: min-content;
             }
         </style>
-        <div class="card">
+        <div class="card col-12 col-md-6 col-lg-12">
             <div class="row">
                 <div class="col-12 card-col img-card">
                     <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>

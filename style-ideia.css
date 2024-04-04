@@ -70,9 +70,6 @@
     width: 28px;
 }
 
-
-
-
 /*Estrela e dificuldade*/    
 .rating-x {
     display: flex;
@@ -120,7 +117,7 @@
     padding: 5px;
     font-weight: bold;
     border-radius: 20px;
-    font-size: 18px;
+    font-size: 16px;
     display: flexbox;
     align-items: center;
 }
@@ -136,6 +133,11 @@
 }
 
 /* Outras publicações */
+.img-card-ideia{
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
 .outras-ideias{
     display: flex;
     flex-direction: column;
