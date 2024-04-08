@@ -51,7 +51,7 @@ class Ideias {
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
                         <div class="card-title">'.$nome.'</div>
                     </a>
-                    <a href="minha-conta.php?user='.$usuario.'">
+                    <a href="perfil.php?type=perfil&user='.$usuario.'">
                         <div class="card-subtitle">'.$usuario.'</div>
                     </a>
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -105,7 +105,7 @@ class Ideias {
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
                         <div class="card-title">'.$nome.'</div>
                     </a>
-                    <a href="minha-conta.php?user='.$usuario.'">
+                    <a href="perfil.php?type=perfil&user='.$usuario.'">
                         <div class="card-subtitle">'.$usuario.'</div>
                     </a>
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -196,6 +196,21 @@ class Ideias {
                 <input value="2" name="rating'.$idPost.'" id="star2" type="radio" disabled>
                 <label for="star2"></label>
                 <input value="1" name="rating'.$idPost.'" id="star1" type="radio" disabled checked>
+                <label for="star1"></label>
+            </div>';
+        }
+        else{
+            return '
+            <div class="rating">
+                <input value="5" name="rating'.$idPost.'" id="star5" type="radio" disabled>
+                <label for="star5"></label>
+                <input value="4" name="rating'.$idPost.'" id="star4" type="radio" disabled>
+                <label for="star4"></label>
+                <input value="3" name="rating'.$idPost.'" id="star3" type="radio" disabled>
+                <label for="star3"></label>
+                <input value="2" name="rating'.$idPost.'" id="star2" type="radio" disabled>
+                <label for="star2"></label>
+                <input value="1" name="rating'.$idPost.'" id="star1" type="radio" disabled>
                 <label for="star1"></label>
             </div>';
         }

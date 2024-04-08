@@ -1,12 +1,11 @@
 <?php
     require_once('usuarios.php');
     require_once('ideias.php');
-    
+    $type = $_REQUEST['type'];
     $user = $_REQUEST['user'];
     $usuario = new Usuarios();
-    
+
     //Dados da conta
-    
     $id = '';
     $qtdeS1 = '';
     $qtdeS2 = '';

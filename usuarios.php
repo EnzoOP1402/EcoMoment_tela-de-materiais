@@ -104,6 +104,22 @@ class Usuarios{
                 <label for="star1"></label>
             </div>';
         }
+        else{
+            return '
+            <div class="rating rating-user">
+                <input value="5" name="raiting-user-'.$idUser.'" id="star5" type="radio" disabled>
+                <label for="star5"></label>
+                <input value="4" name="raiting-user-'.$idUser.'" id="star4" type="radio" disabled>
+                <label for="star4"></label>
+                <input value="3" name="raiting-user-'.$idUser.'" id="star3" type="radio" disabled>
+                <label for="star3"></label>
+                <input value="2" name="raiting-user-'.$idUser.'" id="star2" type="radio" disabled>
+                <label for="star2"></label>
+                <input value="1" name="raiting-user-'.$idUser.'" id="star1" type="radio" disabled>
+                <label for="star1"></label>
+            </div>';
+        }
+        
     }
 
     public function getIdUsuarioWeb() {

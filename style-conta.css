@@ -1,0 +1,152 @@
+/*Container conta*/
+.container-conta{
+    background-color: #d9d9d9;
+    border-radius: 15px;
+}
+.col-perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+    
+    /* Coluna -> Foto perfil e dados */
+    /* Foto perfil */
+        .img-perfil{
+            height: 150px;
+            width:150px;    
+        }
+
+        /* Button Follow */
+        .btn-follow {
+            width: 100%;
+            background-color: #3a7d44;
+            border: 2px solid #3a7d44;
+            border-radius: 34px;
+            background-color: transparent;
+        }
+
+        .btn-follow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 100%;
+            border-radius: inherit;
+            scale: 0;
+            z-index: -1;
+            background-color: #3a7d44;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+                
+        .btn-follow:hover::before {
+            scale: 1;
+        }
+
+        .btn-follow:hover {
+            color: #f4f4f4;
+            font-weight: bold;
+            scale: 1.05;
+            box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+        }
+
+        .btn-follow:active {
+            scale: 1;
+        }
+
+        /* Button Share */
+        .btn-share {
+            width: 100%;
+            background-color: #555555;
+            border: 2px solid #555555;
+            border-radius: 34px;
+            background-color: transparent;
+        }
+
+        .btn-share::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 100%;
+            border-radius: inherit;
+            scale: 0;
+            z-index: -1;
+            background-color: #555555;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+                
+        .btn-share:hover::before {
+            scale: 1;
+        }
+
+        .btn-share:hover {
+            color: #f4f4f4;
+            font-weight: bold;
+            scale: 1.05;
+            box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+        }
+
+        .btn-share:active{
+            scale: 1;
+        }
+
+        /* Dados */
+        .col-dados{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nome-user{
+            font-weight: bolder;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .txt-bio{
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .row-topico{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 15px;
+        }
+        .topico{
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .reputacao{
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        .rating-user label{
+            text-shadow: 1px 1px 3px #aaa;
+            color: #adadad;
+        }
+
+    /* Coluna -> Background */
+    .back{
+        width: 100%;
+        height: 100%;
+        background-color: gray;
+        border-radius: 20px;
+    }
+/* Fim do Container Conta */
+
+/* Container Publicações */
+.linha{
+    border-bottom: 1px solid #ada7ad;
+}
+
+/* Fim do container publicações */
+
+/* Media Query */
+@media screen and (min-width: 260px) and (max-width: 312px) {
+    .txt-c{
+        text-align: center;
+    }
+}

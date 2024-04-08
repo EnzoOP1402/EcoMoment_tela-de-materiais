@@ -178,9 +178,18 @@
     </header>
 
     <main id="navbarMargin">
-        <section class="container mb-4">
-            <h1 class="display-5 fw-bold text-center mb-2">MINHA CONTA</h1>
-        </section>
+        <?php
+            $btn = $btn2 = '';
+            if($type == 'conta'){
+                echo'<section class="container mb-4"><h1 class="display-5 fw-bold text-center mb-2">MINHA CONTA</h1></section>';
+                $btn1 = '<button class="button btn-follow my-2 d-none d-md-block">Editar</button>';
+                $btn2 = '<button class="button btn-follow my-2 d-block d-md-none">Editar</button>';
+            }
+            else{
+                $btn1 = '<button class="button btn-follow my-2 d-none d-md-block">Seguir</button>';
+                $btn2 = '<button class="button btn-follow my-2 d-block d-md-none">Seguir</button>';
+            }
+        ?>
         <!-- Container com os dados -->
         <section class="mb-4 px-2 nunito">
             <div class="container container-conta p-4">
@@ -193,7 +202,7 @@
                                 <!-- <button class="btn-perfil btn-follow my-2 d-none d-md-block">
                                     Editar
                                 </button> -->
-                                <button class="button btn-follow my-2 d-none d-md-block">Editar</button>
+                                <?=$btn1?>
                                 <button class="button btn-share my-2 d-none d-md-block">Compartilhar</button>
                             </div>
                             <!-- Dados -->
@@ -224,9 +233,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <button class="button btn-perfil btn-follow my-2 d-block d-md-none">
-                                        Editar
-                                    </button>
+                                    <?=$btn2?>
                                     <button class="button btn-perfil btn-share my-1 d-block d-md-none">
                                         Compartilhar
                                     </button>
