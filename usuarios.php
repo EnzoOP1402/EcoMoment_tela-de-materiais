@@ -31,7 +31,7 @@ class Usuarios{
     public function carregaReputacaoUser($idUser, $reputacao){
         if ($reputacao == 5){
             return '
-            <div class="rating">
+            <div class="rating rating-user">
                 <input value="5" name="raiting-user-'.$idUser.'" id="star5" type="radio" disabled checked>
                 <label for="star5"></label>
                 <input value="4" name="raiting-user-'.$idUser.'" id="star4" type="radio" disabled>
@@ -46,7 +46,7 @@ class Usuarios{
         }
         else if ($reputacao >= 4){
             return '
-            <div class="rating">
+            <div class="rating rating-user">
                 <input value="5" name="raiting-user-'.$idUser.'" id="star5" type="radio" disabled>
                 <label for="star5"></label>
                 <input value="4" name="raiting-user-'.$idUser.'" id="star4" type="radio" disabled checked>
@@ -61,7 +61,7 @@ class Usuarios{
         }
         else if ($reputacao >= 3){
             return '
-            <div class="rating">
+            <div class="rating rating-user">
                 <input value="5" name="raiting-user-'.$idUser.'" id="star5" type="radio" disabled>
                 <label for="star5"></label>
                 <input value="4" name="raiting-user-'.$idUser.'" id="star4" type="radio" disabled>
@@ -76,7 +76,7 @@ class Usuarios{
         }
         else if ($reputacao >= 2){
             return '
-            <div class="rating">
+            <div class="rating rating-user">
                 <input value="5" name="raiting-user-'.$idUser.'" id="star5" type="radio" disabled>
                 <label for="star5"></label>
                 <input value="4" name="raiting-user-'.$idUser.'" id="star4" type="radio" disabled>
@@ -91,7 +91,7 @@ class Usuarios{
         }
         else if ($reputacao >= 1){
             return '
-            <div class="rating">
+            <div class="rating rating-user">
                 <input value="5" name="raiting-user-'.$idUser.'" id="star5" type="radio" disabled>
                 <label for="star5"></label>
                 <input value="4" name="raiting-user-'.$idUser.'" id="star4" type="radio" disabled>

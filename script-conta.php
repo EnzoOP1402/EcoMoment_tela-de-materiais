@@ -19,7 +19,7 @@
 
     $existe = false;
 
-    $sql2 = 'SELECT * FROM EcoMomentBD_UsuarioWeb WHERE NomeWeb = '.$user;
+    $sql2 = 'SELECT * FROM EcoMomentBD_UsuarioWeb WHERE NomeWeb = "'.$user.'"';
     $result2 = $con->query($sql2);
 
     if ($result2->num_rows > 0){

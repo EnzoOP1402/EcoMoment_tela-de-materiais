@@ -51,7 +51,7 @@ class Ideias {
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
                         <div class="card-title">'.$nome.'</div>
                     </a>
-                    <a href="#">
+                    <a href="minha-conta.php?user='.$usuario.'">
                         <div class="card-subtitle">'.$usuario.'</div>
                     </a>
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -105,7 +105,7 @@ class Ideias {
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
                         <div class="card-title">'.$nome.'</div>
                     </a>
-                    <a href="#">
+                    <a href="minha-conta.php?user='.$usuario.'">
                         <div class="card-subtitle">'.$usuario.'</div>
                     </a>
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">

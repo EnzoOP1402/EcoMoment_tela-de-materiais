@@ -141,8 +141,9 @@
                     flex-wrap: nowrap;
                     align-items: center;
                 }
-                .rating label{
-                    text-shadow: 1px 1px 3px #ccc;
+                .rating-user label{
+                    text-shadow: 1px 1px 3px #aaa;
+                    color: #adadad;
                 }
 
             /* Coluna -> Background */

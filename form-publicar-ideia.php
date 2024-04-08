@@ -46,7 +46,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
 
         #sub-titulo{
-            font-size: 25px;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (min-width: 250px) and (max-width: 320px) {
+            #sub-titulo{
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (min-width: 321px) and (max-width: 520px) {
+            #sub-titulo{
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (min-width: 521px) and (max-width: 780px) {
+            #sub-titulo{
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -60,9 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <main id="navbarMargin">
         <section>
             <h1 class="display-5 fw-bold text-center mb-2">PUBLIQUE SUA NOVA IDEIA</h1>
-            <h2 class="center mb-1" id="sub-titulo">É super simples e ajuda muito!</h2>
+            <h2 class=" display-6 fw-bold nunito text-center mb-1" id="sub-titulo">É super simples e ajuda muito!</h2>
 
-            <div class="formulario center nunito my-5">
+            <div class="formulario center nunito mt-4 mb-4">
                 <form class="needs-validation" action="" method="post">
                     <label for="user">Usuário <span id="obrigatorio">*</span></label>
                     <br>

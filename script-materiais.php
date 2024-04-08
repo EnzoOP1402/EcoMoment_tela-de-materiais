@@ -2,7 +2,6 @@
 
     //Conteúdo
     $idMaterial = $_REQUEST['material'];
-    // $idMaterial = 1; //EU esqueci a sintaxe pra mandar pela url e fiz assim pq tava mais fácil, se vc lembrar é só descomentar a linha de cima e apagar essa
     $material = '';
     $cor = '';
     $descricao = '';
