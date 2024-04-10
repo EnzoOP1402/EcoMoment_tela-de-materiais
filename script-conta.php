@@ -37,6 +37,30 @@
     $con->close();
 
     //Postagens do usuário
+
+    include 'connection.php';
+
+    $existe = false;
+
+    $sql3 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE nomeUsuario = "'.$user.'" ORDER BY avaliacaoPostagem';
+    $result3 = $con->query($sql3);
+
+    if ($result3->num_rows > 0){
+        $existe = true;
+        while ($row = $result3->fetch_assoc()){
+            $idMelhorIdeia = $row['idPostagem'];
+            $nomeMelhorIdeia = $row['nomePostagem'];
+            $userMelhorIdeia = $row['nomeUsuario'];
+            $dificuldadeMelhorIdeia = $row['dificuldadePostagem'];
+            $avaliacaoMelhor = $row['avaliacaoPostagem'];
+            $ideia2 = new Ideias($idMelhorIdeia, $nomeMelhorIdeia, $userMelhorIdeia, $dificuldadeMelhorIdeia, $avaliacaoMelhor);
+            $melhorPost = $ideia2->createCardIdeia3($nomeMelhorIdeia, $userMelhorIdeia, $dificuldadeMelhorIdeia, $avaliacaoMelhor, $idMelhorIdeia);
+        }
+    }
+    
+    $con->close();
+
+
     include 'connection.php';
 
     $postagens = array();
@@ -54,9 +78,9 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens2[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     
     $con->close();
-
+    

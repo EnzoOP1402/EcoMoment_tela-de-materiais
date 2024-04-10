@@ -254,11 +254,14 @@
                 <div class="col-12  col-sm-6 col-lg-4"><h1 class="display-5 fw-bold text-center mb-2">PUBLICAÇÕES</h1></div>
                 <div class="d-none d-sm-inline-block col-sm-3 col-lg-4"><div class="row linha"></div><div class="row"><br></div></div>
             </div>
+            <div class="container-fluid row center ideias mb-3">
+                <?=$melhorPost?>
+            </div>
             <div class="container-fluid row center ideias mb-5">
                 <?php
                     //Carregamento das ideias de reutilazação
                     if ($existe){
-                        foreach($postagens as $post){
+                        foreach($postagens2 as $post){
                             echo $post;
                         }
                     }
