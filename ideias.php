@@ -148,6 +148,34 @@ class Ideias {
         </div>';
     }
 
+    public function createCardIdeia4($nome, $usuario, $dificuldade, $avaliacao, $idPost){
+        return '
+        <div class="sla">
+            <img src="icones-materiais/selo-ideia.png" class="melhor-ideia">
+            <div class="card">
+                <div class="row">
+                    <div class="col-12 col-sm-6 card-col img-card">
+                        <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
+                    </div>
+                    <div class="col-12 col-sm-6 card-col card-content">
+                        <a href="pagIdeia.php?idPostagem='.$idPost.'">
+                            <div class="card-title">'.$nome.'</div>
+                        </a>
+                        <a href="perfil.php?type=perfil&user='.$usuario.'">
+                            <div class="card-subtitle">'.$usuario.'</div>
+                        </a>
+                        <a href="pagIdeia.php?idPostagem='.$idPost.'">
+                            <div class="card-text">
+                                '.$this->carregaAvaliacao($idPost, $avaliacao).'
+                                <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>';
+    }
+
     public function carregaAvaliacao($idPost, $avaliacao){
         if ($avaliacao == 5){
             return '
