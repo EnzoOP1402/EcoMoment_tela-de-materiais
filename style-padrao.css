@@ -61,6 +61,7 @@ a:hover{
     width: 500px;
     margin-top: 15px;
     margin-bottom: 15px;
+    z-index: 0;
 }
 
 .card-col{
@@ -86,12 +87,22 @@ a:hover{
 
 .img-card{
     padding: 3px;
+    display: flex;
+    justify-content: center;
 }
 
 .img-card-ideia{
     width: 100%;
     height: 100%;
     border-radius: 5px;
+}
+
+.selo-melhor-ideia{
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    left: -50px;
+    top: -30px;
 }
 
 /*Estrela e dificuldade*/    

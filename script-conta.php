@@ -54,7 +54,7 @@
             $dificuldadeMelhorIdeia = $row['dificuldadePostagem'];
             $avaliacaoMelhor = $row['avaliacaoPostagem'];
             $ideia2 = new Ideias($idMelhorIdeia, $nomeMelhorIdeia, $userMelhorIdeia, $dificuldadeMelhorIdeia, $avaliacaoMelhor);
-            $melhorPost = $ideia2->createCardIdeia3($nomeMelhorIdeia, $userMelhorIdeia, $dificuldadeMelhorIdeia, $avaliacaoMelhor, $idMelhorIdeia);
+            $melhorPost = $ideia2->createCardIdeia4($nomeMelhorIdeia, $userMelhorIdeia, $dificuldadeMelhorIdeia, $avaliacaoMelhor, $idMelhorIdeia);
         }
     }
     

@@ -113,7 +113,7 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens[] = $ideia->createCardIdeia4($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     

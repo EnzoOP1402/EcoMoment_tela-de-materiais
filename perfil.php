@@ -168,6 +168,14 @@
                 text-align: center;
             }
         }
+
+        .selo-melhor-ideia{
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    left: -50px;
+    top: -30px;
+}
     </style>
 </head>
 <body>

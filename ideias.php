@@ -56,7 +56,7 @@ class Ideias {
                     </a>
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
                         <div class="card-text">
-                            '.$this->carregaAvaliacao($idPost, $avaliacao).'
+                            '.$this->carregaAvaliacao2($idPost, $avaliacao).'
                             <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
                         </div>
                     </a>
@@ -150,9 +150,8 @@ class Ideias {
 
     public function createCardIdeia4($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
-        <div class="sla">
-            <img src="icones-materiais/selo-ideia.png" class="melhor-ideia">
-            <div class="card">
+        <div class="card">
+        <img src="icones-materiais/selo-ideia.png" class="selo-melhor-ideia">
                 <div class="row">
                     <div class="col-12 col-sm-6 card-col img-card">
                         <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
@@ -172,8 +171,7 @@ class Ideias {
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>';
+            </div>';
     }
 
     public function carregaAvaliacao($idPost, $avaliacao){
