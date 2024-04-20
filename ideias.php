@@ -151,7 +151,8 @@ class Ideias {
     public function createCardIdeia4($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
         <div class="card">
-        <img src="icones-materiais/selo-ideia.png" class="selo-melhor-ideia">
+        <img src="icones-materiais/selo-ideia.png" class="d-none d-sm-block selo-melhor-ideia">
+        <img src="icones-materiais/selo-ideia.png" class="d-block d-sm-none selo-melhor-ideia-sm">
                 <div class="row">
                     <div class="col-12 col-sm-6 card-col img-card">
                         <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
