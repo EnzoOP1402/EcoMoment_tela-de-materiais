@@ -254,9 +254,7 @@
                                 <div class="row row-topico my-1">
                                     <div class="col-12">
                                         <span class="topico">Sobre mim: </span>
-                                        <span class="bio" id="bio">
-                                        <?=$biog?> Usar Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus eius tempore voluptatibus expedita aspernatur, saepe natus optio eum corporis similique quisquam recusandae laboriosam quasi voluptas libero doloribus harum cupiditate?<strong>VER MAIS</strong>
-                                        </span>
+                                        <span class="bio" id="bio"><?=$biog?></span>
                                     </div>
                                 </div>
                                 <div class="row row-topico my-1">
@@ -325,7 +323,6 @@
     <script>
         var bio = document.getElementById('bio');
         var biog = bio.innerText;
-        biog = `${biog}... <span id="ver-mais" onclick="ver()">Ver menos</span>`;
         var biog2 = '';
         console.log(biog)
         if(biog.length > 50){
@@ -337,9 +334,9 @@
         }
 
         function ver(){
-            if (bio.innerText.toString() == biog2.toString()){
+            if (bio.innerHTML.toString() == biog2.toString()){
                 console.log(biog);
-                bio.innerHTML = biog;
+                bio.innerHTML = `${biog}... <span id="ver-mais" onclick="ver()">Ver menos</span>`;
             }
             else {
                 bio.innerHTML = biog2;
