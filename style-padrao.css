@@ -38,6 +38,13 @@ a:hover{
     align-items: center;
 }
 
+.center2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 #navbarMargin{
     margin-top: 90px;
 }

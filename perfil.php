@@ -194,6 +194,19 @@
                 width: 80px;
             }
         }
+
+        .center2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #ver-mais{
+            font-weight: bold;
+            color: #3a7d44;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -241,8 +254,8 @@
                                 <div class="row row-topico my-1">
                                     <div class="col-12">
                                         <span class="topico">Sobre mim: </span>
-                                        <span class="bio">
-                                        <?=$biog?> Usar <strong>VER MAIS</strong>
+                                        <span class="bio" id="bio">
+                                        <?=$biog?> Usar Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus eius tempore voluptatibus expedita aspernatur, saepe natus optio eum corporis similique quisquam recusandae laboriosam quasi voluptas libero doloribus harum cupiditate?<strong>VER MAIS</strong>
                                         </span>
                                     </div>
                                 </div>
@@ -280,21 +293,23 @@
                 <div class="col-12  col-sm-6 col-lg-4"><h1 class="display-5 fw-bold text-center mb-2">PUBLICAÇÕES</h1></div>
                 <div class="d-none d-sm-inline-block col-sm-3 col-lg-4"><div class="row linha"></div><div class="row"><br></div></div>
             </div>
-            <div class="container-fluid row center ideias mb-3">
-                <?=$melhorPost?>
-            </div>
-            <div class="container-fluid row center ideias mb-5">
-                <?php
-                    //Carregamento das ideias de reutilazação
-                    if ($existe){
-                        foreach($postagens2 as $post){
-                            echo $post;
+            <div class="center2">
+                <div class="container-fluid row center ideias mb-3">
+                    <?=$melhorPost?>
+                </div>
+                <div class="container-fluid row center ideias mb-5">
+                    <?php
+                        //Carregamento das ideias de reutilazação
+                        if ($existe){
+                            foreach($postagens2 as $post){
+                                echo $post;
+                            }
                         }
-                    }
-                    else{
-                        echo '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
-                    }
-                ?>
+                        else{
+                            echo '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
+                        }
+                    ?>
+                </div>
             </div>
         </section>
     </main>
@@ -306,6 +321,32 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        var bio = document.getElementById('bio');
+        var biog = bio.innerText;
+        biog = `${biog}... <span id="ver-mais" onclick="ver()">Ver menos</span>`;
+        var biog2 = '';
+        console.log(biog)
+        if(biog.length > 50){
+            for (let index = 0; index < 50; index++) {
+                biog2 += `${biog.charAt(index)}`;
+            }
+            biog2 = `${biog2}... <span id="ver-mais" onclick="ver()">Ver mais</span>`;
+            bio.innerHTML = biog2;
+        }
+
+        function ver(){
+            if (bio.innerText.toString() == biog2.toString()){
+                console.log(biog);
+                bio.innerHTML = biog;
+            }
+            else {
+                bio.innerHTML = biog2;
+                console.log(biog2);
+            }
+        }
+    </script>
 
 </body>
 </html>
