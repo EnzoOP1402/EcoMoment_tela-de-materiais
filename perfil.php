@@ -186,7 +186,7 @@
         }
 
         /* Media Query */
-        @media screen and (min-width: 260px) and (max-width: 312px) {
+        @media screen and (min-width: 240px) and (max-width: 312px) {
             .txt-c{
                 text-align: center;
             }
@@ -206,6 +206,47 @@
             font-weight: bold;
             color: #3a7d44;
             cursor: pointer;
+        }
+
+        .postar{
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;
+            background-color: #3a7d44;
+            color: #f4f4f4;
+            position: sticky;
+            bottom: 50px;
+            left: 92%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        @media screen and (min-width: 240px) and (max-width: 575px){
+            .postar{
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                left: 82%;
+            }
+        }
+        @media screen and (min-width: 576px) and (max-width: 767px){
+            .postar{
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+                left: 88%;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1200px){
+            .postar{
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+                left: 90%;
+            }
         }
     </style>
 </head>
@@ -285,7 +326,7 @@
             </div>
         </section>
         <!-- Postagens -->
-        <section class="container my-5 px-2 nunito">
+        <section class="container my-4 px-2 nunito">
             <div class="row center mb-3">
                 <div class="d-none d-sm-inline-block col-sm-3 col-lg-4"><div class="row linha"></div><div class="row"><br></div></div>
                 <div class="col-12  col-sm-6 col-lg-4"><h1 class="display-5 fw-bold text-center mb-2">PUBLICAÇÕES</h1></div>
@@ -295,7 +336,7 @@
                 <div class="container-fluid row center ideias mb-3">
                     <?=$melhorPost?>
                 </div>
-                <div class="container-fluid row center ideias mb-5">
+                <div class="container-fluid row center ideias">
                     <?php
                         //Carregamento das ideias de reutilazação
                         if ($existe){
@@ -310,6 +351,11 @@
                 </div>
             </div>
         </section>
+        <?php
+        if($type == 'conta'){
+            include_once('botao.html');
+        }
+        ?>
     </main>
 
     <footer>
@@ -319,6 +365,10 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
 
     <script>
         var bio = document.getElementById('bio');
