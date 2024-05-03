@@ -1,5 +1,44 @@
 <?php 
     require_once('script-ideias.php');
+    
+    function curtirPHP($numCurt, $id){
+        include 'connection.php';
+
+        $sql = 'UPDATE prototipo_Postagem_EcoMoment SET numeroCurtidas = '.$numCurt.' WHERE idPostagem = '.$id.'';
+
+        $stmt = $con->prepare($sql);
+        if($stmt->execute()){
+            $con->close();
+            return true;
+        }
+        else{
+            $con->close();
+            return false;  
+        }
+    }
+
+    function curtido($usuarioCurtida){
+        include 'connection.php';
+
+        $sql2 = 'SELECT * FROM prototipo_Curtidas_EcoMoment WHERE idUsuarioWeb = '.$usuarioCurtida.'';
+        $result2 = $con->query($sql2);
+
+        if ($result2->num_rows > 0){
+            $con->close();
+            return true;
+        }
+        else{
+            $con->close();
+            return false;
+        }
+    }
+
+    if($_SERVER['REQUEST_METHOD'] === 'GET'){
+        $op = 0;
+        $idUserWeb = 27;
+        $curtido = curtido($idUserWeb);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +103,7 @@
     <main id="navbarMargin">
         <section class="container mb-5">
             <h1 class="display-5 fw-bold text-center mb-2"><?=$nomeIdeia?></h1>
-            <h2 class="center mb-2" id="sub-titulo"><a href="#"><?=$userIdeia?></a></h2><!--Link para a página de perfil-->
+            <h2 class="center mb-2" id="sub-titulo"><a href="perfil.php?type=perfil&user=<?=$userIdeia?>"><?=$userIdeia?></a></h2><!--Link para a página de perfil-->
             <div class="avaliacao center nunito">
                 <div class="av-head">
                     <?php
@@ -157,10 +196,13 @@
                     <div class="col-6 col-sm-3 col-md-3 topico">
                         <div>
                             <!-- <span id="img-curtida"><img src="icones-materiais/curtida-1.png" alt="ícone de coração" class="btnInteraction" onclick="curtir()"></span> -->
-                            <div class="curtida" onclick="curtir()">
+                            <div class="curtida" onclick="curtirJS()">
                                 <img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">
                             </div>
                             <span id="numCurtidas" class="center"><?=$numCurtidas?></span>
+                            <!-- <form method="post">
+                                <input type="hidden" name="curtir" id="numCurtidas" class="center" value="true"><?=$numCurtidas?></input>
+                            </form> -->
                         </div>
                     </div>
                     <div class="col-6 col-sm-3 col-md-3 topico">
@@ -259,16 +301,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <script>
-        var curtida = false;
+    
 
-        function curtir(){
+    <script>
+        
+        var curtida = <?=$curtido?>;
+        console.log('Número de curtidas: <?=$numCurtidas?>')
+        if(curtida){
+            document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-1.png" alt="Ícone de coração sem preenchimento">';
+        }
+        else{
+            document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">';
+        }
+
+        function curtirJS(){
             if (curtida == false){
+                alert('passei por aqui 1');
+                <?php
+                    $numCurtidas++;
+                    $curtiu = curtirPHP($numCurtidas, $idPostagem);
+                    echo'alert("Curti -> numero: '.$numCurtidas.'");';
+                ?>
                 curtida = true;
                 document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-1.png" alt="Ícone de coração sem preenchimento">';
+                document.getElementById('numCurtidas').innerHTML = <?=$numCurtidas?>;
+                
             } else{
+                alert('passei por aqui 2');
+                <?php
+                    $numCurtidas = $numCurtidas-1;
+                    $curtiu = curtirPHP($numCurtidas, $idPostagem);
+                    echo'alert("Nn curti -> numero: '.$numCurtidas.'");';
+                ?>
+                console.log('Num agr: <?=$numCurtidas?>');
                 curtida = false;
                 document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">';
+                document.getElementById('numCurtidas').innerHTML = <?=$numCurtidas?>;
             }
         }
 
@@ -285,6 +353,5 @@
             document.getElementById('x-star1').disabled = 'true';
         }
     </script>
-
 </body>
 </html>
