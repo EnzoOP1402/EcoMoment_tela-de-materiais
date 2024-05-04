@@ -190,7 +190,7 @@ a:hover{
 
 #search2:focus {
     box-shadow: 0 0 0 0;
-    border: 0 none;
+    border: 0 none transparent;
     outline: 0;
 }
 

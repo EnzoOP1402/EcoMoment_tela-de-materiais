@@ -1,51 +1,72 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
-    $msg = '456';
+    $msg = '';
+    $msgNome = '';
+    $msgDesc = '';
+    $msgMat = '';
+    $msgInst = '';
     //Dados do usuário logado
 }
-// else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-//     $nome = trim($_REQUEST['nomeIdeia']);
-//     // $user = $_REQUEST['user'];
-//     $user = '@enzoop1402';
-//     $descricao = trim($_REQUEST['descricaoIdeia']);
-//     $materiaisNec = trim($_REQUEST['materiaisNecessariosIdeia']);
-//     $instrucoes = trim($_REQUEST['instrucoesIdeia']);
-//     $material = $_REQUEST['material'];
-//     $dificuldade = $_REQUEST['dificuldade'];
+    $nome = trim($_REQUEST['nomeIdeia']);
+    // $user = $_REQUEST['user'];
+    $user = '@enzoop1402';
+    $descricao = trim($_REQUEST['descricaoIdeia']);
+    $materiaisNec = trim($_REQUEST['materiaisNecessariosIdeia']);
+    $instrucoes = trim($_REQUEST['instrucoesIdeia']);
+    $material = $_REQUEST['material'];
+    $dificuldade = $_REQUEST['dificuldade'];
 
-//     // require_once('Redimensionamento.php');
-//     // $redimensionar = new Redimensionamento();
-//     // if(isset($_FILES['anexo'])){
-//     //     $anexo = $_FILES['anexo'];
-//     //     $retorno = $redimensionar->processar($anexo);
-//     //     if($retorno){
-//     //         echo("<script>Precisa não Antoin</script>");
-//     //     }
-//     // }
+    // require_once('Redimensionamento.php');
+    // $redimensionar = new Redimensionamento();
+    // if(isset($_FILES['anexo'])){
+    //     $anexo = $_FILES['anexo'];
+    //     $retorno = $redimensionar->processar($anexo);
+    //     if($retorno){
+    //         echo("<script>Precisa não Antoin</script>");
+    //     }
+    // }
 
-//     if($nome != '' and $user != '' and $descricao != '' and $materiaisNec != '' and $instrucoes != '' and $material != null and $dificuldade != null){
-//         include 'connection.php';
+    if(($nome != '' and $user != '' and $descricao != '' and $materiaisNec != '' and $instrucoes != '' and $material != null and $dificuldade != null)&&(strlen($nome)>3 and strlen($descricao)>10 and strlen($materiaisNec)>10 and strlen($instrucoes)>10)){
+        include 'connection.php';
 
-//         $sql = 'INSERT INTO prototipo_Postagem_EcoMoment (nomePostagem, nomeUsuario, descricaoPostagem, materiaisNecessariosPostagem, instrucoesPostagem, materialPostagem, dificuldadePostagem) values ("'.$nome.'", "'.$user.'", "'.$descricao.'", "'.$materiaisNec.'", "'.$instrucoes.'", "'.$material.'", "'.$dificuldade.'")';
+        $sql = 'INSERT INTO prototipo_Postagem_EcoMoment (nomePostagem, nomeUsuario, descricaoPostagem, materiaisNecessariosPostagem, instrucoesPostagem, materialPostagem, dificuldadePostagem) values ("'.$nome.'", "'.$user.'", "'.$descricao.'", "'.$materiaisNec.'", "'.$instrucoes.'", "'.$material.'", "'.$dificuldade.'")';
 
-//         $stmt = $con->prepare($sql);
-//         if($stmt->execute()){
-//             echo '<script>document.alert("Muito obrigado! \n Sua ideia foi publicada com sucesso.");</script>';
-//         }else{
-//             echo '<script>document.alert("ERRO \n Não foi possível publicar sua ideia. Verifique se há algum erro ou tente novamente.");</script>';
-//         }
+        $stmt = $con->prepare($sql);
+        if($stmt->execute()){
+            echo '<script>document.alert("Muito obrigado! \n Sua ideia foi publicada com sucesso.");</script>';
+        }else{
+            echo '<script>document.alert("ERRO \n Não foi possível publicar sua ideia. Verifique se há algum erro ou tente novamente.");</script>';
+        }
 
-//         $con->close();
-//     }
-//     else{
-//         $msg = '<span id="erro" class="mb-3">Todos os campos devem estar preenchidos corretamente</span>';
-//     }
+        $con->close();
+        $msg = '';
+        $msgNome = '';
+        $msgDesc = '';
+        $msgMat = '';
+        $msgInst = '';
+    }
+    else{
+        if(strlen($nome)<3){
+            $msgNome = 'O nome deve ter no mínimo 3 caracteres.';
+        }
+        if(strlen($descricao)<10){
+            $msgDesc = 'A descrição deve ter no mínimo 10 caracteres.';
+        }
+        if(strlen($materiaisNec)<10){
+            $msgMat = 'A descrição dos materiais necessários deve ter no mínimo 10 caracteres.<br>Verifique se todos estão informados.';
+        }
+        if(strlen($instrucoes)<10){
+            $msgInst = 'A descrição das instruções deve ter no mínimo 10 caracteres';
+        }
+        $msg = '<span class="erro" class="mb-3">Todos os campos devem estar preenchidos corretamente</span>';
+    }
 
     
 
-// }
+}
 
 ?>
 
@@ -63,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     <!-- <link rel="stylesheet" href="style-publicar-ideia.css"> -->
     <title>Publicar ideia</title>
     <style>
-        #erro{
+        .erro{
             color: red;
             font-weight: bold;
         }
@@ -80,15 +101,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
             font-family: Circe, sans-serif;
         }
 
-        .form-area{
-            width: 70%;
+        .sub-tpc2{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            text-align: left;
         }
 
-        form{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        .icone-titulo{
+            width: 75px;
+            height: 75px;
+        }
+
+        .form-area{
+            width: 70%;
         }
 
         .form-label{
@@ -101,13 +127,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
             padding: 8px;
         }
 
-        input[type="radio" i] + label{
+        input[type="text"]:focus, input[type="file"]:focus, input[type="radio"]:focus{
+            box-shadow: 0 0 0 0;
+            border: 0 none transparent;
+            outline: 0;
+        }
+
+        textarea:focus{
+            box-shadow: 0 0 0 0;
+            border: 0 none transparent;
+            outline: 0;
+        }
+
+        .radio{
+            cursor: pointer;
+            gap: 8px;
+        }
+        
+        .radio:not(:has(:checked)){
+            opacity: 0.8;
+        }
+
+        .radio:has(:checked){
+            font-weight: bold;
+        }
+
+        input[type="radio"] + label{
             font-size: 18px;
             cursor: pointer;
         }
 
-        input[type="file" i]{
+        input[type="radio"]{
             cursor: pointer;
+            appearance: none;
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        input[name="material"]:checked{
+            background-color: #3a7d44;
+        }
+
+        #facil:checked{
+            background-color: #409d4e;
+        }
+        #media:checked{
+            background-color: #ffc30f;
+        }
+        #dificil:checked{
+            background-color: #ff2230;
+        }
+
+        input[type="file"]{
+            cursor: pointer;
+            appearance: none;
         }
 
         .button{
@@ -150,83 +224,110 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     <main id="navbarMargin">
         <section>
-            <h1 class="display-5 fw-bold text-center mb-2">*ft* PUBLIQUE SUA NOVA IDEIA</h1>
+            <h1 class="display-5 fw-bold text-center center mb-2"><img class="icone-titulo" src="icones-materiais/ideia-lamp.png" alt="Ícone de lâmpada saindo da caixa"> PUBLIQUE SUA NOVA IDEIA</h1>
             <h2 class=" display-6 fw-bold nunito text-center mb-1" id="sub-titulo">É super simples e ajuda muito!</h2>
 
             <div class="form-area container my-5 nunito">
-                <h3 class="sub-tpc">MINHA IDEIA</h3>
-                <form method="" action="" class="needs-validation">
+                <form method="post" action="" class="needs-validation" novalidate> <!--Direcionar para uma pag intermediária-->
+                    <div class="row sub-tpc2 my-2">
+                        <h3 class="sub-tpc">MINHA IDEIA</h3>
+                    </div>
                     <div class="row container my-3">
                         <label for="nome" class="form-label">Nome da Ideia: <span class="obrigatorio">*</span></label>
                         <br>
-                        <input class="form-control" type="text" name="nomeIdeia" id="nome" placeholder="Até 80 caracteres" maxlength="80">
+                        <input class="form-control" type="text" name="nomeIdeia" id="nome" placeholder="Até 80 caracteres" maxlength="80" required>
                         <div class="invalid-feedback">Informe o nome da ideia</div>
                     </div>
+                    <div class="center erro"><?=$msgNome?></div>
                     <div class="row container mt-3">
-                        <div class="col-12 col-md-6 center mb-3">
-                            <input type="file" name="anexo[]" id="foto">
+                        <div class="col-12 col-md-6 center2 mb-3">
+                            <input class="form-control" type="file" name="anexo[]" id="foto"> <!--Adicionar required-->
+                            <div class="invalid-feedback">Insira pelo menos uma foto ou vídeo da ideia</div>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <p class="form-label">Tipo de material: <span class="obrigatorio">*</span></p>
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <input type="radio" name="material" id="plastico" value="1">
-                                    <label for="plastico">Plástico</label>
-                                    <br>
-                                    <input type="radio" name="material" id="metal" value="2">
-                                    <label for="metal">Metal</label>
-                                    <br>
-                                    <input type="radio" name="material" id="papel" value="3">
-                                    <label for="papel">Papel</label>
+                                    <div class="radio form-check">
+                                        <input class="form-check-input" type="radio" name="material" id="plastico" value="1" required>
+                                        <label class="form-check-label" for="plastico">Plástico</label>
+                                    </div>
+                                    <div class="radio form-check mt-1">
+                                        <input class="form-check-input" type="radio" name="material" id="metal" value="2" required>
+                                        <label class="form-check-label" for="metal">Metal</label>
+                                    </div>
+                                    <div class="radio form-check mt-1">
+                                        <input class="form-check-input" type="radio" name="material" id="papel" value="3" required>
+                                        <label class="form-check-label" for="papel">Papel</label>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="radio" name="material" id="vidro" value="4">
-                                    <label for="vidro">Vidro</label>
-                                    <br>
-                                    <input type="radio" name="material" id="madeira" value="5">
-                                    <label for="madeira">Madeira</label>
-                                    <br>
-                                    <input type="radio" name="material" id="organico" value="6">
-                                    <label for="organico"><span class="d-none d-sm-block d-md-none d-xl-block">Resíduo orgânico</span><span class="d-block d-sm-none d-md-block d-xl-none">Orgânico</span></label>
+                                    <div class="radio form-check mt-1 mt-md-0">
+                                        <input class="form-check-input" type="radio" name="material" id="vidro" value="4" required>
+                                        <label class="form-check-label" for="vidro">Vidro</label>
+                                    </div>
+                                    <div class="radio form-check mt-1">
+                                        <input class="form-check-input" type="radio" name="material" id="madeira" value="5" required>
+                                        <label class="form-check-label" for="madeira">Madeira</label>
+                                    </div>
+                                    <div class="radio form-check mt-1">
+                                        <input class="form-check-input" type="radio" name="material" id="organico" value="6" required>
+                                        <label class="form-check-label" for="organico"><span class="d-none d-sm-block d-md-none d-xl-block">Resíduo orgânico</span><span class="d-block d-sm-none d-md-block d-xl-none">Orgânico</span></label>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" name="material" class="form-check-input d-none">
+                                    <div class="invalid-feedback">Informe o material ao qual se refere a ideia</div>
                                 </div>
                             </div>
-                            <div class="invalid-feedback">Informe o material ao qual se refere a ideia</div>
                         </div>
                     </div>
-                    <div class="row my-2 my-md-4">
+                    <div class="row sub-tpc2 my-2">
                         <h3 class="sub-tpc">INFORMAÇÕES IMPORTANTES</h3>
+                    </div>
+                    <div class="row container my-2 my-md-4">
                         <div class="row my-md-3">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="descricao" class="form-label">Descrição da ideia: <span class="obrigatorio">*</span></label>
                                 <br>
-                                <textarea class="form-control" name="descricaoIdeia" id="descricao" cols="30" rows="6" placeholder="Até 300 caracteres" maxlength="300"></textarea>
+                                <textarea class="form-control" name="descricaoIdeia" id="descricao" cols="30" rows="6" placeholder="Até 300 caracteres" maxlength="300" required></textarea>
                                 <div class="invalid-feedback">Descreva a ideia</div>
+                                <div class="center erro"><?=$msgDesc?></div>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="materiaisNecessarios" class="form-label">Materiais necessários: <span class="obrigatorio">*</span></label>
                                 <br>
-                                <textarea class="form-control" name="materiaisNecessariosIdeia" id="materiaisNecessarios" cols="30" rows="6" placeholder="Coloque tudo o que vamos precisar"></textarea>
+                                <textarea class="form-control" name="materiaisNecessariosIdeia" id="materiaisNecessarios" cols="30" rows="6" placeholder="Coloque tudo o que vamos precisar" required></textarea>
                                 <div class="invalid-feedback">Informe os materiais necessários</div>
+                                <div class="center erro"><?=$msgMat?></div>
                             </div>
                         </div>
                         <div class="row my-md-3">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="instrucoes" class="form-label">Instruções para a ideia: <span class="obrigatorio">*</span></label>
                                 <br>
-                                <textarea class="form-control" name="instrucoesIdeia" id="instrucoes" cols="30" rows="6" placeholder="Coloque tudo o que vamos precisar"></textarea>
+                                <textarea class="form-control" name="instrucoesIdeia" id="instrucoes" cols="30" rows="6" placeholder="Como vamos fazer?" required></textarea>
                                 <div class="invalid-feedback">Informe as instruções</div>
+                                <div class="center erro"><?=$msgInst?></div>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <p class="form-label">Dificuldade da ideia: <span class="obrigatorio">*</span></p>
-                                <input type="radio" name="dificuldade" id="facil" value="1">
-                                <label for="facil">Facil</label>
-                                <br>
-                                <input type="radio" name="dificuldade" id="media" value="2">
-                                <label for="media">Média</label>
-                                <br>
-                                <input type="radio" name="dificuldade" id="dificil" value="3">
-                                <label for="dificil">Difícil</label>
-                                <div class="invalid-feedback">Informe a dificuldade de execução</div>
+                                <div class="radio form-check mt-1">
+                                    <input class="form-check-input" type="radio" name="dificuldade" id="facil" value="1" required>
+                                    <label class="form-check-label" for="facil">Facil</label>
+                                </div>
+                                <div class="radio form-check mt-1">
+                                    <input class="form-check-input" type="radio" name="dificuldade" id="media" value="2" required>
+                                    <label class="form-check-label" for="media ">Média</label>
+                                </div>
+                                <div class="radio form-check mt-1">
+                                    <input class="form-check-input" type="radio" name="dificuldade" id="dificil" value="3" required>
+                                    <label class="form-check-label" for="dificil">Difícil</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" name="dificuldade" class="form-check-input d-none">
+                                    <div class="invalid-feedback">Informe a dificuldade de execução</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -237,27 +338,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
                     </div>
                 </form>
             </div>
-
-            <!-- <div class="formulario center nunito mt-4 mb-4">
-                <form class="needs-validation" method="post">
-                    <label for="user">Usuário <span class="obrigatorio">*</span></label>
-                    <br>
-                    <input type="text" name="user" id="user" placeholder="Até 50 caracteres" maxlength="50">
-
-
-                    
-                    <br><br>
-
-                    <br><br>
-                    
-                    
-                    <br><br>
-
-                    <input type="submit" value="Publicar">
-                    
-                </form>
-            </div> -->
         </section>
+        <div class="center my-3">
+            <?=$msg?>
+        </div>
     </main>
 
     <footer>
@@ -277,24 +361,24 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
     <script type="text/javascript"> //Para as validações
         // Example starter JavaScript for disabling form submissions if there are invalid fields
-  (() => {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-  
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })()
+        (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+            }, false)
+        })
+        })()
     </script>
 
 </body>

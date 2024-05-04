@@ -67,26 +67,31 @@ class Ideias {
     /*
     Código acima descomprimido ↑
 
-    '
-    <div class="card">
+    '<div class="card">
             <div class="row">
                 <div class="col-12 col-sm-6 card-col img-card">
-                    <img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet">
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
                 </div>
                 <div class="col-12 col-sm-6 card-col card-content">
-                    <div class="card-title">'.$nome.'</div>
-                    <div class="card-subtitle">'.$usuario.'</div>
-                    <div class="card-text">
-                        '.$this->carregaAvaliacao($idPost, $avaliacao).'
-                        <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
-                    </div>
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'">
+                        <div class="card-title">'.$nome.'</div>
+                    </a>
+                    <a href="perfil.php?type=perfil&user='.$usuario.'">
+                        <div class="card-subtitle">'.$usuario.'</div>
+                    </a>
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'">
+                        <div class="card-text">
+                            '.$this->carregaAvaliacao2($idPost, $avaliacao).'
+                            <div class="dificuldade dificuldade-'.$dificuldade.'"></div>
+                        </div>
+                    </a>
                 </div>
             </div>
-    </div>';
+        </div>';
 
     Código comprimido
 
-    '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></div><div class="col-12 col-sm-6 card-col card-content"><div class="card-title">'.$nome.'</div><div class="card-subtitle">'.$usuario.'</div><div class="card-text">'.$this->carregaAvaliacao($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div></div></div></div></div>';
+    '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a></div><div class="col-12 col-sm-6 card-col card-content"><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-title">'.$nome.'</div></a><a href="perfil.php?type=perfil&user='.$usuario.'"><div class="card-subtitle">'.$usuario.'</div></a><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-text">'.$this->carregaAvaliacao2($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div> </div></a></div></div></div>';
     */
 
     public function createCardIdeia2($nome, $usuario, $dificuldade, $avaliacao, $idPost){
@@ -173,6 +178,10 @@ class Ideias {
                     </div>
                 </div>
             </div>';
+    }
+
+    public function createCardIdeia5($nome, $usuario, $dificuldade, $avaliacao, $idPost){
+        return '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a></div><div class="col-12 col-sm-6 card-col card-content"><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-title">'.$nome.'</div></a><a href="perfil.php?type=perfil&user='.$usuario.'"><div class="card-subtitle">'.$usuario.'</div></a><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-text">'.$this->carregaAvaliacao3($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div> </div></a></div></div></div>';
     }
 
     public function carregaAvaliacao($idPost, $avaliacao){
@@ -267,6 +276,7 @@ class Ideias {
             </div>';
         }
     }
+
     public function carregaAvaliacao2($idPost, $avaliacao){
         if ($avaliacao == 5){
             return '
@@ -357,6 +367,27 @@ class Ideias {
                 <input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled>
                 <label for="star1"></label>
             </div>';
+        }
+    }
+
+    public function carregaAvaliacao3($idPost, $avaliacao){
+        if ($avaliacao == 5){
+            return '<div class="rating"><input value="5" name="rating-best-'.$idPost.'" id="star5" type="radio" disabled checked><label for="star5"></label><input value="4" name="rating-best-'.$idPost.'" id="star4" type="radio" disabled><label for="star4"></label><input value="3" name="rating-best-'.$idPost.'" id="star3" type="radio" disabled><label for="star3"></label><input value="2" name="rating-best-'.$idPost.'" id="star2" type="radio" disabled><label for="star2"></label><input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled><label for="star1"></label></div>';
+        }
+        else if ($avaliacao >= 4){
+            return '<div class="rating"><input value="5" name="rating-best-'.$idPost.'" id="star5" type="radio" disabled><label for="star5"></label><input value="4" name="rating-best-'.$idPost.'" id="star4" type="radio" disabled checked><label for="star4"></label><input value="3" name="rating-best-'.$idPost.'" id="star3" type="radio" disabled><label for="star3"></label><input value="2" name="rating-best-'.$idPost.'" id="star2" type="radio" disabled><label for="star2"></label><input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled><label for="star1"></label></div>';
+        }
+        else if ($avaliacao >= 3){
+            return '<div class="rating"><input value="5" name="rating-best-'.$idPost.'" id="star5" type="radio" disabled><label for="star5"></label><input value="4" name="rating-best-'.$idPost.'" id="star4" type="radio" disabled><label for="star4"></label><input value="3" name="rating-best-'.$idPost.'" id="star3" type="radio" disabled checked><label for="star3"></label><input value="2" name="rating-best-'.$idPost.'" id="star2" type="radio" disabled><label for="star2"></label><input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled><label for="star1"></label></div>';
+        }
+        else if ($avaliacao >= 2){
+            return '<div class="rating"><input value="5" name="rating-best-'.$idPost.'" id="star5" type="radio" disabled><label for="star5"></label><input value="4" name="rating-best-'.$idPost.'" id="star4" type="radio" disabled><label for="star4"></label><input value="3" name="rating-best-'.$idPost.'" id="star3" type="radio" disabled><label for="star3"></label><input value="2" name="rating-best-'.$idPost.'" id="star2" type="radio" disabled checked><label for="star2"></label><input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled><label for="star1"></label></div>';
+        }
+        else if ($avaliacao >= 1){
+            return '<div class="rating"><input value="5" name="rating-best-'.$idPost.'" id="star5" type="radio" disabled><label for="star5"></label><input value="4" name="rating-best-'.$idPost.'" id="star4" type="radio" disabled><label for="star4"></label><input value="3" name="rating-best-'.$idPost.'" id="star3" type="radio" disabled><label for="star3"></label><input value="2" name="rating-best-'.$idPost.'" id="star2" type="radio" disabled><label for="star2"></label><input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled checked><label for="star1"></label></div>';
+        }
+        else{
+            return '<div class="rating"><input value="5" name="rating-best-'.$idPost.'" id="star5" type="radio" disabled><label for="star5"></label><input value="4" name="rating-best-'.$idPost.'" id="star4" type="radio" disabled><label for="star4"></label><input value="3" name="rating-best-'.$idPost.'" id="star3" type="radio" disabled><label for="star3"></label><input value="2" name="rating-best-'.$idPost.'" id="star2" type="radio" disabled><label for="star2"></label><input value="1" name="rating-best-'.$idPost.'" id="star1" type="radio" disabled><label for="star1"></label></div>';
         }
     }
     

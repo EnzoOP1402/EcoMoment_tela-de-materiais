@@ -2,6 +2,9 @@
 
     //Conteúdo
     $idMaterial = $_REQUEST['material'];
+    if($idMaterial < 1 or $idMaterial > 6){
+        $idMaterial = 1;
+    }
     $material = '';
     $cor = '';
     $descricao = '';
@@ -124,6 +127,7 @@
     include 'connection.php';
 
     $postagens1 = array();
+    $existe = false;
 
     $sql3 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND dificuldadePostagem = "facil"  ORDER BY idPostagem DESC';
     $result3 = $con->query($sql3);
@@ -137,7 +141,7 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens1[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens1[] = $ideia->createCardIdeia5($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     
@@ -147,6 +151,7 @@
     include 'connection.php';
 
     $postagens2 = array();
+    $existe = false;
 
     $sql4 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND dificuldadePostagem = "media"  ORDER BY idPostagem DESC';
     $result4 = $con->query($sql4);
@@ -160,7 +165,7 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens2[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens2[] = $ideia->createCardIdeia5($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     
@@ -170,6 +175,7 @@
     include 'connection.php';
 
     $postagens3 = array();
+    $existe = false;
 
     $sql5 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND dificuldadePostagem = "dificil" ORDER BY idPostagem DESC';
     $result5 = $con->query($sql5);
@@ -183,7 +189,7 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens3[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens3[] = $ideia->createCardIdeia5($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     
@@ -208,7 +214,7 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens4[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens4[] = $ideia->createCardIdeia5($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     
@@ -233,7 +239,7 @@
             $dificuldadeIdeia = $row['dificuldadePostagem'];
             $avaliacao = $row['avaliacaoPostagem'];
             $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-            $postagens5[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+            $postagens5[] = $ideia->createCardIdeia5($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
         }
     }
     
