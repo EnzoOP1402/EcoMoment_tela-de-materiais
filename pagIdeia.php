@@ -195,9 +195,9 @@
                     </div>
                     <div class="col-6 col-sm-3 col-md-3 topico">
                         <div>
-                            <!-- <span id="img-curtida"><img src="icones-materiais/curtida-1.png" alt="ícone de coração" class="btnInteraction" onclick="curtir()"></span> -->
+                            <!-- <span id="img-curtida"><img src="midias/icones-pagIdeia/curtida-1.png" alt="ícone de coração" class="btnInteraction" onclick="curtir()"></span> -->
                             <div class="curtida" onclick="curtirJS()">
-                                <img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">
+                                <img class="btnInteraction" src="midias/icones-pagIdeia/curtida-2.png" alt="Ícone de coração sem preenchimento">
                             </div>
                             <span id="numCurtidas" class="center"><?=$numCurtidas?></span>
                             <!-- <form method="post">
@@ -207,7 +207,7 @@
                     </div>
                     <div class="col-6 col-sm-3 col-md-3 topico">
                         <div>
-                            <img src="icones-materiais/compartilhar.png" alt="ícone de seta para compartilhamento" class="btnInteraction" onclick="compartilhar()">
+                            <img src="midias/icones-pagIdeia/compartilhar.png" alt="ícone de seta para compartilhamento" class="btnInteraction" onclick="compartilhar()">
                         </div>
                     </div>
                 </div>
@@ -220,7 +220,7 @@
                     <div class="col-12 col-lg-8 nunito descricoes mb-5">
                         <div>
                             <div class="topico2">
-                                <img class="img-topico ms-2" src="icones-materiais/descricao.png" alt="Ícone de folha pautada">
+                                <img class="img-topico ms-2" src="midias/icones-pagIdeia/descricao.png" alt="Ícone de folha pautada">
                                 <strong> Descrição</strong>
                             </div>
                             <section class="sec-desc">
@@ -230,7 +230,7 @@
                         
                         <div>
                             <div class="topico2">
-                                <img class="img-topico ms-2" src="icones-materiais/materiais.png" alt="Ícone de caixa com materiais escolares">
+                                <img class="img-topico ms-2" src="midias/icones-pagIdeia/materiais.png" alt="Ícone de caixa com materiais escolares">
                                 <strong> Materiais</strong>
                             </div>
                             <section class="sec-desc">
@@ -240,7 +240,7 @@
 
                         <div>
                             <div class="topico2">
-                                <img class="img-topico ms-2" src="icones-materiais/passo-a-passo.png" alt="ícone de pegadas">
+                                <img class="img-topico ms-2" src="midias/icones-pagIdeia/passo-a-passo.png" alt="ícone de pegadas">
                                 <strong> Passo a passo</strong>
                             </div>
                             <section class="sec-desc">
@@ -251,7 +251,7 @@
                         <div>
                             <div class="topico2" style="display: flex; justify-content: space-between;">
                                 <span>
-                                    <img class="img-topico ms-2" src="icones-materiais/balao-de-fala.png" alt="Ícone de balões de fala">
+                                    <img class="img-topico ms-2" src="midias/icones-pagIdeia/balao-de-fala.png" alt="Ícone de balões de fala">
                                     <strong> Comentários</strong>
                                 </span>
                                 <span class="me-2" style="font-size:14px;">Qtde</span>
@@ -308,10 +308,10 @@
         var curtida = <?=$curtido?>;
         console.log('Número de curtidas: <?=$numCurtidas?>')
         if(curtida){
-            document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-1.png" alt="Ícone de coração sem preenchimento">';
+            document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="midias/icones-pagIdeia/curtida-1.png" alt="Ícone de coração sem preenchimento">';
         }
         else{
-            document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">';
+            document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="midias/icones-pagIdeia/curtida-2.png" alt="Ícone de coração sem preenchimento">';
         }
 
         function curtirJS(){
@@ -323,7 +323,7 @@
                     echo'alert("Curti -> numero: '.$numCurtidas.'");';
                 ?>
                 curtida = true;
-                document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-1.png" alt="Ícone de coração sem preenchimento">';
+                document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="midias/icones-pagIdeia/curtida-1.png" alt="Ícone de coração sem preenchimento">';
                 document.getElementById('numCurtidas').innerHTML = <?=$numCurtidas?>;
                 
             } else{
@@ -335,7 +335,7 @@
                 ?>
                 console.log('Num agr: <?=$numCurtidas?>');
                 curtida = false;
-                document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="icones-materiais/curtida-2.png" alt="Ícone de coração sem preenchimento">';
+                document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="midias/icones-pagIdeia/curtida-2.png" alt="Ícone de coração sem preenchimento">';
                 document.getElementById('numCurtidas').innerHTML = <?=$numCurtidas?>;
             }
         }

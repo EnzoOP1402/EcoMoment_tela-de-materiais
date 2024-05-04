@@ -81,139 +81,8 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style-padrao.css">
-    <!-- <link rel="stylesheet" href="style-publicar-ideia.css"> -->
+    <link rel="stylesheet" href="style-publicar-ideia.css">
     <title>Publicar ideia</title>
-    <style>
-        .erro{
-            color: red;
-            font-weight: bold;
-        }
-        .obrigatorio{
-            color: #3a7d44;
-        }
-
-        #sub-titulo{
-            font-size: 1.5rem;
-        }
-
-        .sub-tpc{
-            color: #3a7d44;
-            font-family: Circe, sans-serif;
-        }
-
-        .sub-tpc2{
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            text-align: left;
-        }
-
-        .icone-titulo{
-            width: 75px;
-            height: 75px;
-        }
-
-        .form-area{
-            width: 70%;
-        }
-
-        .form-label{
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        textarea{
-            border-radius: 10px;
-            padding: 8px;
-        }
-
-        input[type="text"]:focus, input[type="file"]:focus, input[type="radio"]:focus{
-            box-shadow: 0 0 0 0;
-            border: 0 none transparent;
-            outline: 0;
-        }
-
-        textarea:focus{
-            box-shadow: 0 0 0 0;
-            border: 0 none transparent;
-            outline: 0;
-        }
-
-        .radio{
-            cursor: pointer;
-            gap: 8px;
-        }
-        
-        .radio:not(:has(:checked)){
-            opacity: 0.8;
-        }
-
-        .radio:has(:checked){
-            font-weight: bold;
-        }
-
-        input[type="radio"] + label{
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        input[type="radio"]{
-            cursor: pointer;
-            appearance: none;
-            border: 1px solid black;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        input[name="material"]:checked{
-            background-color: #3a7d44;
-        }
-
-        #facil:checked{
-            background-color: #409d4e;
-        }
-        #media:checked{
-            background-color: #ffc30f;
-        }
-        #dificil:checked{
-            background-color: #ff2230;
-        }
-
-        input[type="file"]{
-            cursor: pointer;
-            appearance: none;
-        }
-
-        .button{
-            border: 2px solid #409d4e;
-        }
-
-        .button::before {
-            background-color: #409d4e;
-        }
-
-        .button:hover {
-            color: #f4f4f4;
-        }
-
-        @media screen and (min-width: 250px) and (max-width: 320px) {
-            #sub-titulo{
-                font-size: 14px;
-            }
-        }
-        
-        @media screen and (min-width: 321px) and (max-width: 520px) {
-            #sub-titulo{
-                font-size: 1rem;
-            }
-        }
-
-        @media screen and (min-width: 521px) and (max-width: 780px) {
-            #sub-titulo{
-                font-size: 1.3rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -224,60 +93,66 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <main id="navbarMargin">
         <section>
-            <h1 class="display-5 fw-bold text-center center mb-2"><img class="icone-titulo" src="icones-materiais/ideia-lamp.png" alt="Ícone de lâmpada saindo da caixa"> PUBLIQUE SUA NOVA IDEIA</h1>
+            <h1 class="display-5 fw-bold text-center center mb-2"><img class="icone-titulo d-none d-sm-inline" src="midias/icones-form-publicar/ideia-lamp.png" alt="Ícone de lâmpada saindo da caixa"> PUBLIQUE SUA NOVA IDEIA</h1>
             <h2 class=" display-6 fw-bold nunito text-center mb-1" id="sub-titulo">É super simples e ajuda muito!</h2>
 
             <div class="form-area container my-5 nunito">
-                <form method="post" action="" class="needs-validation" novalidate> <!--Direcionar para uma pag intermediária-->
+                <form method="post" action="" class="needs-validation" id="form-ideia" novalidate> <!--Direcionar para uma pag intermediária-->
                     <div class="row sub-tpc2 my-2">
                         <h3 class="sub-tpc">MINHA IDEIA</h3>
                     </div>
-                    <div class="row container my-3">
-                        <label for="nome" class="form-label">Nome da Ideia: <span class="obrigatorio">*</span></label>
-                        <br>
-                        <input class="form-control" type="text" name="nomeIdeia" id="nome" placeholder="Até 80 caracteres" maxlength="80" required>
-                        <div class="invalid-feedback">Informe o nome da ideia</div>
-                    </div>
-                    <div class="center erro"><?=$msgNome?></div>
-                    <div class="row container mt-3">
-                        <div class="col-12 col-md-6 center2 mb-3">
-                            <input class="form-control" type="file" name="anexo[]" id="foto"> <!--Adicionar required-->
-                            <div class="invalid-feedback">Insira pelo menos uma foto ou vídeo da ideia</div>
+                    <div class="container center3">
+                        <div class="row container my-3">
+                            <label for="nome" class="form-label">Nome da Ideia: <span class="obrigatorio">*</span></label>
+                            <input class="form-control" type="text" name="nomeIdeia" id="nome" placeholder="Até 80 caracteres" maxlength="80" required>
+                            <div class="invalid-feedback">Informe o nome da ideia</div>
                         </div>
-                        <div class="col-12 col-md-6 mb-3">
-                            <p class="form-label">Tipo de material: <span class="obrigatorio">*</span></p>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="radio form-check">
-                                        <input class="form-check-input" type="radio" name="material" id="plastico" value="1" required>
-                                        <label class="form-check-label" for="plastico">Plástico</label>
+                        <div class="center erro"><?=$msgNome?></div>
+                        <div class="row container center3 mt-3">
+                            <div class="col-12 col-md-6 center2 mb-3">
+                                <input class="form-control d-block d-sm-none" type="file" name="anexo[]" id="foto" required>
+                                <label for="foto" class="d-none d-sm-flex" id="lbl-ft">
+                                    <div id="foto-sqr"><img src="midias/icones-form-publicar/foto.png" alt="Ícone de imagem em preto e branco"></div>
+                                    <div id="nome-ft">Nenhum arquivo selecionado</div>
+                                    <div type="button" class="button" id="btn-ft">ESCOLHA UMA IMAGEM</div>
+                                </label>
+                                <div class="invalid-feedback"><span class="center">Insira pelo menos uma foto ou vídeo da ideia</span></div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <p class="form-label">Tipo de material: <span class="obrigatorio">*</span></p>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="radio form-check">
+                                            <input class="form-check-input" type="radio" name="material" id="plastico" value="1" required>
+                                            <label class="form-check-label" for="plastico">Plástico</label>
+                                        </div>
+                                        <div class="radio form-check mt-1">
+                                            <input class="form-check-input" type="radio" name="material" id="metal" value="2" required>
+                                            <label class="form-check-label" for="metal">Metal</label>
+                                        </div>
+                                        <div class="radio form-check mt-1">
+                                            <input class="form-check-input" type="radio" name="material" id="papel" value="3" required>
+                                            <label class="form-check-label" for="papel">Papel</label>
+                                        </div>
                                     </div>
-                                    <div class="radio form-check mt-1">
-                                        <input class="form-check-input" type="radio" name="material" id="metal" value="2" required>
-                                        <label class="form-check-label" for="metal">Metal</label>
+                                    <div class="col-12 col-md-6">
+                                        <div class="radio form-check mt-1 mt-md-0">
+                                            <input class="form-check-input" type="radio" name="material" id="vidro" value="4" required>
+                                            <label class="form-check-label" for="vidro">Vidro</label>
+                                        </div>
+                                        <div class="radio form-check mt-1">
+                                            <input class="form-check-input" type="radio" name="material" id="madeira" value="5" required>
+                                            <label class="form-check-label" for="madeira">Madeira</label>
+                                        </div>
+                                        <div class="radio form-check mt-1">
+                                            <input class="form-check-input" type="radio" name="material" id="organico" value="6" required>
+                                            <label class="form-check-label" for="organico"><span class="d-none d-sm-block d-md-none d-xl-block">Resíduo orgânico</span><span class="d-block d-sm-none d-md-block d-xl-none">Orgânico</span></label>
+                                        </div>
                                     </div>
-                                    <div class="radio form-check mt-1">
-                                        <input class="form-check-input" type="radio" name="material" id="papel" value="3" required>
-                                        <label class="form-check-label" for="papel">Papel</label>
+                                    <div class="form-check">
+                                        <input type="radio" name="material" class="form-check-input d-none">
+                                        <div class="invalid-feedback">Informe o material ao qual se refere a ideia</div>
                                     </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="radio form-check mt-1 mt-md-0">
-                                        <input class="form-check-input" type="radio" name="material" id="vidro" value="4" required>
-                                        <label class="form-check-label" for="vidro">Vidro</label>
-                                    </div>
-                                    <div class="radio form-check mt-1">
-                                        <input class="form-check-input" type="radio" name="material" id="madeira" value="5" required>
-                                        <label class="form-check-label" for="madeira">Madeira</label>
-                                    </div>
-                                    <div class="radio form-check mt-1">
-                                        <input class="form-check-input" type="radio" name="material" id="organico" value="6" required>
-                                        <label class="form-check-label" for="organico"><span class="d-none d-sm-block d-md-none d-xl-block">Resíduo orgânico</span><span class="d-block d-sm-none d-md-block d-xl-none">Orgânico</span></label>
-                                    </div>
-                                </div>
-                                <div class="form-check">
-                                    <input type="radio" name="material" class="form-check-input d-none">
-                                    <div class="invalid-feedback">Informe o material ao qual se refere a ideia</div>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +160,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <div class="row sub-tpc2 my-2">
                         <h3 class="sub-tpc">INFORMAÇÕES IMPORTANTES</h3>
                     </div>
-                    <div class="row container my-2 my-md-4">
+                    <div class="row container center3 my-2 my-md-4">
                         <div class="row my-md-3">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="descricao" class="form-label">Descrição da ideia: <span class="obrigatorio">*</span></label>
@@ -318,7 +193,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                                 </div>
                                 <div class="radio form-check mt-1">
                                     <input class="form-check-input" type="radio" name="dificuldade" id="media" value="2" required>
-                                    <label class="form-check-label" for="media ">Média</label>
+                                    <label class="form-check-label" for="media">Média</label>
                                 </div>
                                 <div class="radio form-check mt-1">
                                     <input class="form-check-input" type="radio" name="dificuldade" id="dificil" value="3" required>
@@ -354,11 +229,6 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <!--Scripts Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-    <!-- <script> 
-        const tooltipTriggerList = document.querySelectorAll('.tt') //.tt é a classe que declaramos na tooltip
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script> Utilizado para habilitar as tooltips -->
-
     <script type="text/javascript"> //Para as validações
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (() => {
@@ -379,6 +249,13 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
             }, false)
         })
         })()
+    </script>
+
+    <script>
+        document.getElementById('foto').addEventListener('change', function(){
+            document.querySelector('#nome-ft').textContent = this.files[0].name;
+            document.getElementById('foto-sqr').style.display = 'none';
+        });
     </script>
 
 </body>

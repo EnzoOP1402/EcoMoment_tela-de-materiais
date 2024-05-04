@@ -100,6 +100,42 @@
                 $conteudo = '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
             }
         }
+        else if($filtro == 6){
+            $txt = $_POST['pesquisa'];
+            $tipo = 'Ordenar';
+            $tipo2 = 'Dificuldades';
+
+            //Pesquisa de ideias
+            include 'connection.php';
+        
+            $postagens6 = array();
+
+            $sql8 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND nomePostagem LIKE "%'.$txt.'%"';
+            $result8 = $con->query($sql8);
+
+            if ($result8->num_rows > 0){
+                while ($row = $result8->fetch_assoc()){
+                    $idIdeia = $row['idPostagem'];
+                    $nomeIdeia = $row['nomePostagem'];
+                    $userIdeia = $row['nomeUsuario'];
+                    $dificuldadeIdeia = $row['dificuldadePostagem'];
+                    $avaliacao = $row['avaliacaoPostagem'];
+                    $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
+                    $postagens6[] = $ideia->createCardIdeia5($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
+                }
+                $con->close();
+                $conteudo = '';      
+                foreach($postagens6 as $post){
+                    $conteudo .= (string)$post;
+                }
+                if($conteudo == ''){
+                    $conteudo = '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
+                }
+            }
+            else{
+                $conteudo = '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
+            }
+        }
         else{
             $conteudo = '';
             $tipo = 'Ordenar';
@@ -172,20 +208,6 @@
             color: <?=$cor?>;
         }
 
-        input[type="submit"]{
-            appearance: none;
-            border: 0 none transparent;
-            background-color: transparent;
-            width: 100%;
-        }
-
-        input[type="submit"]:hover{
-            font-weight: bold;
-        }
-
-        .filtroDflt:hover{
-            font-weight: bold;
-        }
     </style>
 </head>
 
@@ -288,7 +310,7 @@
                 <h1 class="display-5 fw-bold text-center mb-5" id="titulo">IDEIAS DE REUTILIZAÇÃO COM <?=$material?></h1> <!--Muda com Php-->
                 <div class="row center nunito">
                     <div class="dropdown col-3">
-                        <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="icones-materiais/ordenacao.png" alt="ícone de organização em lixeiras"> <span class="d-none d-sm-block mx-1" id="selectedFiltro"><?=$tipo?></span> </button>
+                        <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="midias/icones-materiais/ordenacao.png" alt="ícone de organização em lixeiras"> <span class="d-none d-sm-block mx-1" id="selectedFiltro"><?=$tipo?></span> </button>
                         <ul class="dropdown-menu">
                           <li class="filtroDflt" id="filtro1" onclick="selecionaFiltro(1)"> Dificuldade</li> <!--Chama uma função de ordenar por JS-->
                           <li class="filtroDflt" id="filtro2">
@@ -312,7 +334,7 @@
                         </ul>
 
                         <div id="drop-dif" class="mt-2" style="display: none;">
-                            <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="icones-materiais/semaforo.png" alt="ícone de semáforo"> <span class="d-none d-sm-block mx-1" id="selectedFiltro2"><?=$tipo2?></span> </button>
+                            <button class="btn dropdown-toggle filtro" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="midias/icones-materiais/semaforo.png" alt="ícone de semáforo"> <span class="d-none d-sm-block mx-1" id="selectedFiltro2"><?=$tipo2?></span> </button>
                             <ul class="dropdown-menu">
                               <li class="filtroDflt" id="filtro4">
                                 <form method="post">
@@ -343,9 +365,10 @@
                     </div>
                     <div class="col-2 col-sm-4 col-lg-6"></div>
                     <div class="col-7 col-sm-5 col-lg-3 pesquisa">
-                    <form class="d-flex" role="search">
+                    <form class="d-flex" role="search" method="post">
                         <div class="input-group">
-                            <input class="form-control" id="search2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <input class="form-control" id="search2" type="search" name="pesquisa" placeholder="Buscar" aria-label="Buscar">
+                            <input type="hidden" name="filtro" value="6">
                             <button class="btn btnPesq input-group-text" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
@@ -456,45 +479,6 @@
             }
             
         }
-
-        <?php
-            function pesquisar($txt){
-                //Pesquisa de ideias
-                include 'connection.php';
-    
-                $postagens5 = array();
-                $existe = false;
-    
-                $sql8 = 'SELECT * FROM prototipo_Postagem_EcoMoment WHERE materialPostagem = '.$idMaterial.' AND nomePostagem LIKE '.$txt;
-                $result8 = $con->query($sql8);
-    
-                if ($result8->num_rows > 0){
-                    $existe = true;
-                    while ($row = $result8->fetch_assoc()){
-                        $idIdeia = $row['idPostagem'];
-                        $nomeIdeia = $row['nomePostagem'];
-                        $userIdeia = $row['nomeUsuario'];
-                        $dificuldadeIdeia = $row['dificuldadePostagem'];
-                        $avaliacao = $row['avaliacaoPostagem'];
-                        $ideia = new Ideias($idIdeia, $nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao);
-                        $postagens6[] = $ideia->createCardIdeia($nomeIdeia, $userIdeia, $dificuldadeIdeia, $avaliacao, $idIdeia);
-                    }
-                }
-    
-                $con->close();
-
-                /* preenchimento
-                if ($existe){       
-                    foreach($postagens as $post){
-                        echo $post;
-                    }
-                }
-                else{
-                    echo '<div class="novaIdeia">Nenhuma postagem cadastrada</div>';
-                }
-                */
-            }
-        ?>
 
     </script>
 

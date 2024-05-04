@@ -168,11 +168,65 @@
 }
 
 /* Media Query */
-@media screen and (min-width: 260px) and (max-width: 312px) {
+@media screen and (min-width: 240px) and (max-width: 312px) {
     .txt-c{
         text-align: center;
     }
     .selo-melhor-ideia-sm{
         width: 80px;
+    }
+}
+
+.center2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ver-mais{
+    font-weight: bold;
+    color: #3a7d44;
+    cursor: pointer;
+}
+
+.postar{
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    background-color: #3a7d44;
+    color: #f4f4f4;
+    position: sticky;
+    bottom: 50px;
+    left: 92%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+@media screen and (min-width: 240px) and (max-width: 575px){
+    .postar{
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        left: 82%;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .postar{
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        left: 88%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px){
+    .postar{
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        left: 90%;
     }
 }

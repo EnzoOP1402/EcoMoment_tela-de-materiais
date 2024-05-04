@@ -45,7 +45,7 @@ class Ideias {
         <div class="card">
             <div class="row">
                 <div class="col-12 col-sm-6 card-col img-card">
-                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
                 </div>
                 <div class="col-12 col-sm-6 card-col card-content">
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -70,7 +70,7 @@ class Ideias {
     '<div class="card">
             <div class="row">
                 <div class="col-12 col-sm-6 card-col img-card">
-                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
                 </div>
                 <div class="col-12 col-sm-6 card-col card-content">
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -91,7 +91,7 @@ class Ideias {
 
     Código comprimido
 
-    '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a></div><div class="col-12 col-sm-6 card-col card-content"><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-title">'.$nome.'</div></a><a href="perfil.php?type=perfil&user='.$usuario.'"><div class="card-subtitle">'.$usuario.'</div></a><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-text">'.$this->carregaAvaliacao2($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div> </div></a></div></div></div>';
+    '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a></div><div class="col-12 col-sm-6 card-col card-content"><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-title">'.$nome.'</div></a><a href="perfil.php?type=perfil&user='.$usuario.'"><div class="card-subtitle">'.$usuario.'</div></a><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-text">'.$this->carregaAvaliacao2($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div> </div></a></div></div></div>';
     */
 
     public function createCardIdeia2($nome, $usuario, $dificuldade, $avaliacao, $idPost){
@@ -104,7 +104,7 @@ class Ideias {
         <div class="card col-12 col-md-6 col-lg-12">
             <div class="row">
                 <div class="col-12 card-col img-card">
-                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
                 </div>
                 <div class="col-12 card-col card-content">
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -133,7 +133,7 @@ class Ideias {
         <div class="card">
             <div class="row">
                 <div class="col-12 col-sm-6 card-col img-card">
-                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
+                    <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
                 </div>
                 <div class="col-12 col-sm-6 card-col card-content">
                     <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -156,11 +156,11 @@ class Ideias {
     public function createCardIdeia4($nome, $usuario, $dificuldade, $avaliacao, $idPost){
         return '
         <div class="card">
-        <img src="icones-materiais/selo-ideia.png" class="d-none d-sm-block selo-melhor-ideia">
-        <img src="icones-materiais/selo-ideia.png" class="d-block d-sm-none selo-melhor-ideia-sm">
+        <img src="midias/icones-perfil/selo-ideia.png" class="d-none d-sm-block selo-melhor-ideia">
+        <img src="midias/icones-perfil/selo-ideia.png" class="d-block d-sm-none selo-melhor-ideia-sm">
                 <div class="row">
                     <div class="col-12 col-sm-6 card-col img-card">
-                        <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
+                        <a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a>
                     </div>
                     <div class="col-12 col-sm-6 card-col card-content">
                         <a href="pagIdeia.php?idPostagem='.$idPost.'">
@@ -181,7 +181,7 @@ class Ideias {
     }
 
     public function createCardIdeia5($nome, $usuario, $dificuldade, $avaliacao, $idPost){
-        return '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a></div><div class="col-12 col-sm-6 card-col card-content"><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-title">'.$nome.'</div></a><a href="perfil.php?type=perfil&user='.$usuario.'"><div class="card-subtitle">'.$usuario.'</div></a><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-text">'.$this->carregaAvaliacao3($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div> </div></a></div></div></div>';
+        return '<div class="card"><div class="row"><div class="col-12 col-sm-6 card-col img-card"><a href="pagIdeia.php?idPostagem='.$idPost.'"><img class="img-card-ideia" src="midias/icones-materiais/img-ideia.jpg" alt="Ideia de reutilização com garrafas pet"></a></div><div class="col-12 col-sm-6 card-col card-content"><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-title">'.$nome.'</div></a><a href="perfil.php?type=perfil&user='.$usuario.'"><div class="card-subtitle">'.$usuario.'</div></a><a href="pagIdeia.php?idPostagem='.$idPost.'"><div class="card-text">'.$this->carregaAvaliacao3($idPost, $avaliacao).'<div class="dificuldade dificuldade-'.$dificuldade.'"></div> </div></a></div></div></div>';
     }
 
     public function carregaAvaliacao($idPost, $avaliacao){

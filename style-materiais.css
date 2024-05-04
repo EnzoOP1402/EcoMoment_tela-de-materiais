@@ -65,6 +65,21 @@
     border-bottom: #f4f4f4;
 }
 
+input[type="submit"]{
+    appearance: none;
+    border: 0 none transparent;
+    background-color: transparent;
+    width: 100%;
+}
+
+input[type="submit"]:hover{
+    font-weight: bold;
+}
+
+.filtroDflt:hover{
+    font-weight: bold;
+}
+
 /*Tabela dos materiais*/
 .table{
     --bs-body-bg: transparent;
