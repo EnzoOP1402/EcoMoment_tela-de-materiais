@@ -1,42 +1,17 @@
 <?php 
     require_once('script-ideias.php');
-    
-    function curtirPHP($numCurt, $id){
-        include 'connection.php';
-
-        $sql = 'UPDATE prototipo_Postagem_EcoMoment SET numeroCurtidas = '.$numCurt.' WHERE idPostagem = '.$id.'';
-
-        $stmt = $con->prepare($sql);
-        if($stmt->execute()){
-            $con->close();
-            return true;
-        }
-        else{
-            $con->close();
-            return false;  
-        }
-    }
-
-    function curtido($usuarioCurtida){
-        include 'connection.php';
-
-        $sql2 = 'SELECT * FROM prototipo_Curtidas_EcoMoment WHERE idUsuarioWeb = '.$usuarioCurtida.'';
-        $result2 = $con->query($sql2);
-
-        if ($result2->num_rows > 0){
-            $con->close();
-            return true;
-        }
-        else{
-            $con->close();
-            return false;
-        }
-    }
 
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
-        $op = 0;
-        $idUserWeb = 27;
-        $curtido = curtido($idUserWeb);
+        
+        $idUserWeb = 26;
+
+        echo'<script>alert("Chamando curtido()")</script>';
+        $curtido = curtido($idUserWeb, $idPostagem);
+        echo'<script>alert("curtido: '.$curtido.'")</script>';
+
+        // echo'<script>alert("Chamando avaliado()")</script>';
+        // $avaliado = avaliado($idUserWeb, $idPostagem);
+        // echo'<script>alert("avaliado: '.$avaliado.'")</script>';
     }
 
 ?>
@@ -114,7 +89,7 @@
                         } else if ($dificuldadeIdeia == 'dificil'){
                             $dif = 'Difícil';
                         }
-                        echo $ideia->carregaAvaliacao($idPostagem, $avaliacaoPostagem);
+                        echo $ideia->carregaAvaliacao($avaliacaoPostagem);
                     ?>
                     <span style="width: 6px;"></span>
                     <span><?=$avaliacaoPostagem?>/5</span>
@@ -315,24 +290,25 @@
         }
 
         function curtirJS(){
+            alert('curti');
             if (curtida == false){
                 alert('passei por aqui 1');
-                <?php
-                    $numCurtidas++;
-                    $curtiu = curtirPHP($numCurtidas, $idPostagem);
-                    echo'alert("Curti -> numero: '.$numCurtidas.'");';
-                ?>
+                // <?php
+                //     $numCurtidas++;
+                //     $curtiu = curtirPHP($numCurtidas, $idUserWeb, $idPostagem);
+                // //     echo'alert("Curti -> numero: '.$numCurtidas.'");';
+                // ?>
                 curtida = true;
                 document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="midias/icones-pagIdeia/curtida-1.png" alt="Ícone de coração sem preenchimento">';
                 document.getElementById('numCurtidas').innerHTML = <?=$numCurtidas?>;
                 
             } else{
                 alert('passei por aqui 2');
-                <?php
-                    $numCurtidas = $numCurtidas-1;
-                    $curtiu = curtirPHP($numCurtidas, $idPostagem);
-                    echo'alert("Nn curti -> numero: '.$numCurtidas.'");';
-                ?>
+                // <?php
+                //     $numCurtidas = $numCurtidas-1;
+                //     $curtiu = curtirPHP($numCurtidas, $idUserWeb, $idPostagem);
+                // //     echo'alert("Nn curti -> numero: '.$numCurtidas.'");';
+                // ?>
                 console.log('Num agr: <?=$numCurtidas?>');
                 curtida = false;
                 document.querySelector('.curtida').innerHTML = '<img class="btnInteraction" src="midias/icones-pagIdeia/curtida-2.png" alt="Ícone de coração sem preenchimento">';

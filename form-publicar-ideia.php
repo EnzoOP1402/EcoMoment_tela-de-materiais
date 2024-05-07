@@ -6,12 +6,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     $msgDesc = '';
     $msgMat = '';
     $msgInst = '';
+    $msgFoto = '';
     //Dados do usuário logado
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+    $msg = '';
+    $msgNome = '';
+    $msgDesc = '';
+    $msgMat = '';
+    $msgInst = '';
+    $msgFoto = '';
+
     $nome = trim($_REQUEST['nomeIdeia']);
-    // $user = $_REQUEST['user'];
+    // $user = $_REQUEST['user']; /* Pega a informação do login */
     $user = '@enzoop1402';
     $descricao = trim($_REQUEST['descricaoIdeia']);
     $materiaisNec = trim($_REQUEST['materiaisNecessariosIdeia']);
@@ -19,34 +27,69 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $material = $_REQUEST['material'];
     $dificuldade = $_REQUEST['dificuldade'];
 
-    // require_once('Redimensionamento.php');
-    // $redimensionar = new Redimensionamento();
-    // if(isset($_FILES['anexo'])){
-    //     $anexo = $_FILES['anexo'];
-    //     $retorno = $redimensionar->processar($anexo);
-    //     if($retorno){
-    //         echo("<script>Precisa não Antoin</script>");
-    //     }
-    // }
+    if(($nome != '' and $user != '' and $descricao != '' and $materiaisNec != '' and $instrucoes != '' and $material != null and $dificuldade != null and isset($_FILES['arquivo'])) and (strlen($nome)>3 and strlen($descricao)>10 and strlen($materiaisNec)>10 and strlen($instrucoes)>10)){
+        if(! empty($_FILES['arquivo']['name'])){
 
-    if(($nome != '' and $user != '' and $descricao != '' and $materiaisNec != '' and $instrucoes != '' and $material != null and $dificuldade != null)&&(strlen($nome)>3 and strlen($descricao)>10 and strlen($materiaisNec)>10 and strlen($instrucoes)>10)){
-        include 'connection.php';
+            $nomeArq = $_FILES['arquivo']['name'];
+            $tipo = $_FILES['arquivo']['type'];
+            $nomeTemp = $_FILES['arquivo']['tmp_name'];
+            $tamanho = $_FILES['arquivo']['size'];
+            $erros = array();
 
-        $sql = 'INSERT INTO prototipo_Postagem_EcoMoment (nomePostagem, nomeUsuario, descricaoPostagem, materiaisNecessariosPostagem, instrucoesPostagem, materialPostagem, dificuldadePostagem) values ("'.$nome.'", "'.$user.'", "'.$descricao.'", "'.$materiaisNec.'", "'.$instrucoes.'", "'.$material.'", "'.$dificuldade.'")';
+            $tamanhoMaximo = 1024 * 1024 * 5;
+            if($tamanho > $tamanhoMaximo){
+                $erros[] = 'Seu arquivo excede o tamanho máximo<br>';
+            }
 
-        $stmt = $con->prepare($sql);
-        if($stmt->execute()){
-            echo '<script>document.alert("Muito obrigado! \n Sua ideia foi publicada com sucesso.");</script>';
-        }else{
-            echo '<script>document.alert("ERRO \n Não foi possível publicar sua ideia. Verifique se há algum erro ou tente novamente.");</script>';
+            $arquivosPermitidos = ['png','jpg','jpeg'];
+            $extensao = pathinfo($nomeArq, PATHINFO_EXTENSION);
+            if(! in_array($extensao, $arquivosPermitidos)){
+                $erros[] = 'Arquivo não permitido';
+            }
+
+            $typesPermitidos = ['image/png','image/jpg','image/jpeg'];
+            if(! in_array($extensao, $arquivosPermitidos)){
+                $erros[] = 'Tipo de arquivo não permitido';
+            }
+
+            // list($larguraOriginal, $alturaOriginal) = getimagesize($nomeArq);
+            // if(($larguraOriginal != 64 and $alturaOriginal != 64) or $larguraOriginal/$alturaOriginal != 1){
+            //     $erros[] = 'Imagem fora das dimensões permitidas';
+            // }
+
+            if(! empty($erros)){
+                foreach($erros as $erro){
+                    $msgFoto .= $erro.'<br>';
+                }
+            } else{
+                $caminho = 'midias/imagens-ideias/';
+                $novo_nome = md5(time().rand(0,999)).'.'.$extensao;
+                if(move_uploaded_file($nomeTemp, $caminho.$novo_nome)){
+                    
+                    include 'connection.php';
+
+                    $sql = 'INSERT INTO prototipo_Postagem_EcoMoment (nomePostagem, nomeUsuario, descricaoPostagem, materiaisNecessariosPostagem, instrucoesPostagem, materialPostagem, dificuldadePostagem) values ("'.$nome.'", "'.$user.'", "'.$descricao.'", "'.$materiaisNec.'", "'.$instrucoes.'", "'.$material.'", "'.$dificuldade.'")';
+
+                    $stmt = $con->prepare($sql);
+                    if($stmt->execute()){
+                        echo '<script>document.alert("Muito obrigado! \n Sua ideia foi publicada com sucesso.");</script>';
+                    }else{
+                        echo '<script>document.alert("ERRO \n Não foi possível publicar sua ideia. Verifique se há algum erro ou tente novamente.");</script>';
+                    }
+
+                    $con->close();
+                    $msg = '';
+                    $msgNome = '';
+                    $msgDesc = '';
+                    $msgMat = '';
+                    $msgInst = '';
+                    $msgFoto = '';
+                }
+                else '<script>alert("Falha ao realizar o upload")</script>';
+            }
+
+
         }
-
-        $con->close();
-        $msg = '';
-        $msgNome = '';
-        $msgDesc = '';
-        $msgMat = '';
-        $msgInst = '';
     }
     else{
         if(strlen($nome)<3){
@@ -97,7 +140,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             <h2 class=" display-6 fw-bold nunito text-center mb-1" id="sub-titulo">É super simples e ajuda muito!</h2>
 
             <div class="form-area container my-5 nunito">
-                <form method="post" action="" class="needs-validation" id="form-ideia" novalidate> <!--Direcionar para uma pag intermediária-->
+                <form method="post" action="" class="needs-validation" id="form-ideia" enctype="multipart/form-data" novalidate> <!--Direcionar para uma pag intermediária-->
                     <div class="row sub-tpc2 my-2">
                         <h3 class="sub-tpc">MINHA IDEIA</h3>
                     </div>
@@ -110,13 +153,14 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                         <div class="center erro"><?=$msgNome?></div>
                         <div class="row container center3 mt-3">
                             <div class="col-12 col-md-6 center2 mb-3">
-                                <input class="form-control d-block d-sm-none" type="file" name="anexo[]" id="foto" required>
+                                <input class="form-control d-block d-sm-none" type="file" name="arquivo" id="foto" required>
                                 <label for="foto" class="d-none d-sm-flex" id="lbl-ft">
                                     <div id="foto-sqr"><img src="midias/icones-form-publicar/foto.png" alt="Ícone de imagem em preto e branco"></div>
-                                    <div id="nome-ft">Nenhum arquivo selecionado</div>
+                                    <div id="nome-ft" class="center">Nenhum arquivo selecionado</div>
                                     <div type="button" class="button" id="btn-ft">ESCOLHA UMA IMAGEM</div>
                                 </label>
                                 <div class="invalid-feedback"><span class="center">Insira pelo menos uma foto ou vídeo da ideia</span></div>
+                                <div class="center erro"><?=$msgFoto?></div>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <p class="form-label">Tipo de material: <span class="obrigatorio">*</span></p>
@@ -254,7 +298,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <script>
         document.getElementById('foto').addEventListener('change', function(){
             document.querySelector('#nome-ft').textContent = this.files[0].name;
-            document.getElementById('foto-sqr').style.display = 'none';
+            document.getElementById('foto-sqr').innerHTML = '<img src="midias/icones-form-publicar/certo.png" alt="Ícone de verificação correta">';
         });
     </script>
 
